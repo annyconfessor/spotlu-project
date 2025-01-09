@@ -1,12 +1,21 @@
-import styled from "styled-components";
+import styled, { css } from 'styled-components'
 
-export const StyledImage = styled.img`
-width: ${(width) => `${width}rem`}
-height: ${(height) => `${height}rem`}
+export const Figure = styled.div<{ width?: number, height?: number }>`
+  display: flex;
+  align-items: center;
+  margin: 0;
 
-.figure {
+  ${({ width, height }) => css`
+    width: ${width}px;
+    height: ${height}px;
+  `}
+`
+
+export const StyledImage = styled.img<{ borderRadius?: number }>`
   width: 100%;
   height: 100%;
-  object-fit: cover
-}
+  object-fit: contain;
+  ${({ borderRadius }) => css`
+    border-radius: ${borderRadius ? `${borderRadius}px` : `${0}px`};
+  `}
 `

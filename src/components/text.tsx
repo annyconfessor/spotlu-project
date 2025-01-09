@@ -12,13 +12,11 @@ const Text = styled.span`
             color: '##FFFFFF',
             // Grey/tom-color-grey-000
             // color: theme.colors.support.white,
-            lineHeight: 32
           },
           heading: {
             fontSize: 24, 
             fontWeight: 700,
             color: '#FFFFFF',
-            lineHeight: 20,
           },
           subheading: {
             fontSize: 19 ,
@@ -34,17 +32,14 @@ const Text = styled.span`
             fontWeight: 400,
             color: '#D3DADD',
             // Grey/tom-color-grey-300
-            lineHeight: 18,
             bold: {
               fontWeight: 700,
               color: '#FFFFFF',
-              lineHeight: 20
             },
           },
           paragraph: {
             fontSize: 14,
             fontWeight: 400,
-            lineHeight: 20,
             color: '#FFFFFF',
             bold: {
               fontWeight: 500

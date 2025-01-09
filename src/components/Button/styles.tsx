@@ -17,4 +17,5 @@ export const StyledButton = styled.button<ButtonProps>`
   border: none;
   border-radius: 24px;
   cursor: pointer;
+  margin: 10px;
 `

@@ -1,7 +1,7 @@
 import { StyledButton } from './styles'
 
 type ButtonProps = {
-  children: React.ReactNode // pode ser text e/ou img
+  children: React.ReactNode
   width: number
 }
 

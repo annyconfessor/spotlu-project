@@ -1,16 +1,11 @@
-import { images } from "@/assets"
-import { StyledImage } from "./styles"
+import { Figure, StyledImage } from "./styles"
 
-type ImageProps = {
-  alt: string
-  name: typeof images
-  width: number
-}
+import { ImageProps } from "./types"
 
-export const ImageComponent = ({ alt, name }: ImageProps) => {
+export const ImageComponent = ({ alt, name, width, height }: ImageProps) => {
   return(
-    <StyledImage alt={alt} src={`images[${name}]`}>
-      <figure></figure>
-    </StyledImage>
+    <Figure width={width} height={height}>
+      <StyledImage alt={alt} src={`images[${name}]`}></StyledImage>
+    </Figure>
   )
 }
