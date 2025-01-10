@@ -1,4 +1,4 @@
-import { clientId, redirectUri, scope, code, authUrl, currentToken } from "./consts";
+import { clientId, redirectUri, scope, code, authUrl, currentToken } from "../constants/config";
 import getToken from "./getToken"
 
 if (code) {
