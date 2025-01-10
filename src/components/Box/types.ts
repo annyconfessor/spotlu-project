@@ -1,3 +1,4 @@
+import { ThemeInterface } from '@/theme/types';
 import {
   SpaceProps,
   LayoutProps,
@@ -5,8 +6,6 @@ import {
   GridProps,
   PositionProps,
 } from 'styled-system';
-
-import { ThemeInterface } from '@/theme/types';
 
 export type BoxProps =
   SpaceProps<ThemeInterface> &
