@@ -2,19 +2,14 @@ import { StyledButton } from './styles'
 
 type ButtonProps = {
   children: React.ReactNode
-  width: number
+  width: number,
+  onClick: () => void
 }
 
-const Button = ({ children, width }: ButtonProps) => {
-
-  const handleClick = () => {
-    console.log("click")
-  }
+export const ButtonComponent = ({ children, width, onClick }: ButtonProps) => {
   return( 
-    <StyledButton onClick={handleClick} width={width}>
+    <StyledButton onClick={onClick} width={width}>
       {children}
     </StyledButton>
   )
 }
-
-export default Button
