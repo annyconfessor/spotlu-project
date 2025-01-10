@@ -1,10 +1,9 @@
-import { clientId, redirectUri, scope, code, authUrl } from "./consts";
-import getToken from "./getToken";
+import { clientId, redirectUri, scope, code, authUrl, currentToken } from "./consts";
+import getToken from "./getToken"
 
 if (code) {
   const token = await getToken(code)
-  console.log('token', token)
-  localStorage.setItem('access_token', token)
+  currentToken.save(token)
 }
 
 const redirectToSpotifyAuthorize = async () => {
@@ -51,8 +50,7 @@ const redirectToSpotifyAuthorize = async () => {
   window.location.href = authUrl.toString()
 }
 
+// click hadlers
 export const loginWithSpotifyClick = async () => {
   await redirectToSpotifyAuthorize()
 }
-
-
