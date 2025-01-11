@@ -1,9 +1,15 @@
-import { clientId, redirectUri, scope, code, authUrl, currentToken } from "../constants/config";
+import { clientId, redirectUri, scope, code, authUrl, currentToken } from "@/constants/config";
 import getToken from "./getToken"
+import refreshToken from "./refreshToken";
 
 if (code) {
   const token = await getToken(code)
   currentToken.save(token)
+}
+
+if (code) {
+  const refreshedToken = await refreshToken()
+  currentToken.save(refreshedToken)
 }
 
 const redirectToSpotifyAuthorize = async () => {
