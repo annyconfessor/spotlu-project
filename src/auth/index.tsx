@@ -2,13 +2,11 @@ import { Box } from "@/components"
 import { Button } from "@/components"
 import Text from "@/components/text"
 import { loginWithSpotifyClick } from "@/services/app"
-import { currentToken } from "@/constants/config"
 
-const Authorization = () => {
+const LoginAuthorization = () => {
 
   const handleLoginWithSpotify = async () => {
     loginWithSpotifyClick()
-    if(currentToken.access_token) console.log(currentToken.access_token)
   }
 
   return (
@@ -21,4 +19,4 @@ const Authorization = () => {
   )
 }
 
-export default Authorization
+export default LoginAuthorization
