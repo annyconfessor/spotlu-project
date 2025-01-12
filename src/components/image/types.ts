@@ -1,9 +1,7 @@
-
-import { images } from "@/assets"
-
-export type ImageProps = {
-  alt: string
-  name: typeof images
-  width: number
-  height: number
+export type AvatarProps = {
+  alt?: string
+  url: string
+  width?: number
+  height?: number,
+  borderRadius?: number
 }

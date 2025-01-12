@@ -11,10 +11,11 @@ export const Figure = styled.div<{ width?: number, height?: number }>`
   `}
 `
 
-export const StyledImage = styled.img<{ borderRadius?: number }>`
+export const StyledImage = styled.img<{ src: string, borderRadius?: number }>`
   width: 100%;
   height: 100%;
   object-fit: contain;
+
   ${({ borderRadius }) => css`
     border-radius: ${borderRadius ? `${borderRadius}px` : `${0}px`};
   `}

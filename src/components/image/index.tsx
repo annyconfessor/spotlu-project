@@ -1,11 +1,11 @@
 import { Figure, StyledImage } from "./styles"
 
-import { ImageProps } from "./types"
+import { AvatarProps } from "./types"
 
-export const ImageComponent = ({ alt, name, width, height }: ImageProps) => {
+export const AvatarComponent = ({ alt, width, height, url, borderRadius}: AvatarProps) => {
   return(
     <Figure width={width} height={height}>
-      <StyledImage alt={alt} src={`images[${name}]`}></StyledImage>
+      <StyledImage alt={alt} src={url} borderRadius={borderRadius}></StyledImage>
     </Figure>
   )
 }

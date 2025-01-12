@@ -1,9 +1,10 @@
-import { ImageComponent as Image } from "./image";
-import { BoxComponent as Box } from "./Box";
-import { ButtonComponent as Button } from "./Button";
+import { AvatarComponent as Avatar } from "./image"
+import { BoxComponent as Box } from "./Box"
+import { ButtonComponent as Button } from "./Button"
+
 
 export {
-  Image,
+  Avatar,
   Box,
   Button
 }
