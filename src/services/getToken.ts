@@ -1,6 +1,6 @@
-import { clientId, redirectUri, tokenEndpoint } from "./consts"
+import { clientId, redirectUri, tokenEndpoint } from "@/constants/config"
 
-const getToken = async (code) => {
+const getToken = async (code: string) => {
   const codeVerifier = localStorage.getItem('code_verifier')
 
   const payload = {
