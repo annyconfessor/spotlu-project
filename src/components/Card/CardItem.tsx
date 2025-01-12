@@ -2,13 +2,14 @@ import Text from "@/components/Text"
 import { CardProps } from './types'
 import { Box, Avatar } from '..'
 
-export const CardComponent = ({ name, description, url }: CardProps) => {
+export const CardItem = ({ name, description, url }: CardProps) => {
   return( 
     <Box 
     display="flex" 
     justifyContent="space-around"
     width={200}
     height={72}
+    data-testid="card-item-box"
     >
       <Avatar 
       width={72} 
