@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import { CardItem } from './CardItem'
+import { CardItem } from '@/components'
 
 describe('CardItem', () => {
   it('should render the card with the name and description', () => {
     render(
-      <CardItem 
+      <CardItem
         name="John Doe" 
         description="Software Developer" 
         url="https://example.com/avatar.jpg"
@@ -21,7 +21,7 @@ describe('CardItem', () => {
 
   it('should render the card without description if not provided', () => {
     render(
-      <CardItem 
+      <CardItem
         name="Jane Doe" 
         url="https://example.com/avatar.jpg" 
       />

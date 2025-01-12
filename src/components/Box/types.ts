@@ -1,15 +1,16 @@
-import { ThemeInterface } from '@/theme/types';
 import {
   SpaceProps,
   LayoutProps,
   FlexboxProps,
-  GridProps,
   PositionProps,
+  TextAlignProps,
 } from 'styled-system';
 
 export type BoxProps =
-  SpaceProps<ThemeInterface> &
+  SpaceProps &
   LayoutProps &
   FlexboxProps &
-  GridProps<ThemeInterface> &
-  PositionProps<ThemeInterface>
+  PositionProps &
+  TextAlignProps & {
+    backgroundColor?: string
+  }

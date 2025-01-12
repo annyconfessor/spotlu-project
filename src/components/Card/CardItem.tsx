@@ -2,7 +2,7 @@ import Text from "@/components/Text"
 import { CardProps } from './types'
 import { Box, Avatar } from '..'
 
-export const CardItem = ({ name, description, url }: CardProps) => {
+export const CardItemComponent = ({ name, description, url }: CardProps) => {
   return( 
     <Box 
     display="flex" 
