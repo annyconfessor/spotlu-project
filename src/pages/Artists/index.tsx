@@ -1,12 +1,23 @@
 import styled from "styled-components"
+import { useState, useEffect } from "react"
+import getArtists from "@/services/getArtists"
 
 const StyledDiv = styled.div`
-width: 100px;
-height: 100px;
 color: #FFFF;
 `
 
 const Artists = () => {
+  const [artists, setArtists] = useState(null)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getArtists()
+      setArtists(data)
+    }
+
+    fetchData()
+  }, [])
+
   return(
     <StyledDiv>
       <h1>artists</h1>
