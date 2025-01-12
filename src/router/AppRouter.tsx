@@ -1,20 +1,25 @@
+import { useEffect, useState } from 'react';
 import LoginAuthorization from '@/auth';
 import { Routes as Router, Route, Navigate } from 'react-router-dom';
 import Home from '@/pages/home';
-// import { useEffect } from 'react';
 import { currentToken } from '@/constants/config';
 import Artists from '@/pages/Artists';
 
 const AppRouter = () => {
+  const [accessToken, setAccessToken] = useState<string | null>(currentToken.access_token)
+
+  useEffect(() => {
+    const token = currentToken.access_token
+    setAccessToken(token)
+  }, [])
 
   const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
-    const isAuthenticated = Boolean(currentToken.access_token)
-    if (!isAuthenticated) {
-      <Navigate to="/"/>
-      return null;
+
+    if (!accessToken) {
+      return <Navigate to="/"/>
     }
 
-    return children;
+    return <>{children}</>
   }
 
   return (

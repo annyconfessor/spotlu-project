@@ -1,9 +1,21 @@
+import { useEffect } from "react"
 import { Box } from "@/components"
 import { Button } from "@/components"
 import Text from "@/components/text"
+import { currentToken } from "@/constants/config"
 import { loginWithSpotifyClick } from "@/services/app"
+import { useNavigate } from "react-router-dom"
 
 const LoginAuthorization = () => {
+  const navigate = useNavigate()
+  
+  useEffect(() => {
+    const token = currentToken.access_token
+    if(token) {
+      navigate('/home')
+    }
+
+  }, [navigate])
 
   const handleLoginWithSpotify = async () => {
     loginWithSpotifyClick()
