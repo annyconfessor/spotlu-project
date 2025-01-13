@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { Box } from "@/components"
 import { Button } from "@/components"
-import Text from "@/components/text"
+import Text from "@/components/Text"
 import { currentToken } from "@/constants/config"
 import { loginWithSpotifyClick } from "@/services/app"
 import { useNavigate } from "react-router-dom"

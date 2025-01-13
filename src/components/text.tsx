@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-import { variant } from 'styled-system'
+import { variant, space } from 'styled-system'
 
 interface TextProps {
-  variant?: 'title' | 'heading' | 'subheading' | 'subtitle' | 'paragraph' | 'subParagraph';
+  variant?: 'title' | 'heading' | 'subheading' | 'subtitle' | 'paragraph' | 'subParagraph'
+  padding?: number
 }
 
 // TODO: configurar theme
@@ -12,7 +13,7 @@ const Text = styled.span<TextProps>`
         title: {
           fontSize: 28,
           fontWeight: 600,
-          color: '##FFFFFF',
+          color: '#FFFFFF',
         },
         heading: {
           fontSize: 24, 
@@ -54,6 +55,7 @@ const Text = styled.span<TextProps>`
         }
       }
     })}
+    ${space}
 `
 
 export default Text

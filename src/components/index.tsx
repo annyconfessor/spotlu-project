@@ -1,12 +1,12 @@
-import { AvatarComponent as Avatar } from "./image"
+import { AvatarComponent as Avatar } from "./Avatar"
 import { BoxComponent as Box } from "./Box"
 import { ButtonComponent as Button } from "./Button"
-import { CardComponent as Card } from "./Card"
+import { CardItemComponent as CardItem } from "./Card/CardItem"
 
 
 export {
   Avatar,
   Box,
   Button,
-  Card
+  CardItem
 }

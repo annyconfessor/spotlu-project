@@ -5,5 +5,4 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #090707;
-  height: 100vh;
   `
