@@ -8,6 +8,7 @@ describe('CardItem', () => {
         name="John Doe" 
         description="Software Developer" 
         url="https://example.com/avatar.jpg"
+        alt="angèle"
       />
     )
     
@@ -44,8 +45,8 @@ describe('CardItem', () => {
     
     const boxElement = screen.getByTestId('card-item-box')
     expect(boxElement).toHaveStyle('display: flex')
-    expect(boxElement).toHaveStyle('justify-content: space-around')
-    expect(boxElement).toHaveStyle('width: 200px')
+    expect(boxElement).toHaveStyle('justify-content: start')
+    expect(boxElement).toHaveStyle('width: 886px')
     expect(boxElement).toHaveStyle('height: 72px')
   })
 })

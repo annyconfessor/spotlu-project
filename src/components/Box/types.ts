@@ -13,4 +13,5 @@ export type BoxProps =
   PositionProps &
   TextAlignProps & {
     backgroundColor?: string
+    activeBg?: string
   }

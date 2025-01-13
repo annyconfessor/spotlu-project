@@ -9,4 +9,10 @@ export const BoxComponent = styled.div<BoxProps>`
   ${position}
   ${textAlign}
   ${background}
-`
+  
+  transition: background-color 0.3s ease;
+  
+  &:active {
+    background-color: ${(props) => props.activeBg}
+    }
+  `
