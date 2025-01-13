@@ -1,8 +1,12 @@
 import { StyledBoxComponent } from './styles';
 import { BoxPropsExtended } from './types';
 
-export const BoxComponent = ({ activeBg, ...rest }: BoxPropsExtended) => {
+export const BoxComponent = ({ hoverBg, borderRadius, ...rest }: BoxPropsExtended) => {
   return(
-    <StyledBoxComponent activeBg={activeBg} {...rest} />
+    <StyledBoxComponent 
+      hoverBg={hoverBg} 
+      borderRadius={borderRadius} 
+      {...rest}
+      />
   )
 }

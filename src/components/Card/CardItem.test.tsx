@@ -47,6 +47,6 @@ describe('CardItem', () => {
     expect(boxElement).toHaveStyle('display: flex')
     expect(boxElement).toHaveStyle('justify-content: start')
     expect(boxElement).toHaveStyle('width: 886px')
-    expect(boxElement).toHaveStyle('height: 72px')
+    expect(boxElement).toHaveStyle('height: 64px')
   })
 })

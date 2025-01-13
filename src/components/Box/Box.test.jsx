@@ -7,7 +7,7 @@ describe('BoxComponent', () => {
   it('renders correctly with provided props', () => {
     render(
       <BoxComponent 
-        activeBg="rgba(169, 169, 169, 0.1)" 
+        hoverBg="rgba(169, 169, 169, 0.1)" 
         display="flex" 
         justifyContent="center" 
         alignItems="center" 
@@ -30,10 +30,10 @@ describe('BoxComponent', () => {
     })
   })
 
-  it('applies activeBg on :active state', async () => {
+  it('applies hoverBg on :active state', async () => {
     render(
       <BoxComponent 
-        activeBg="rgba(169, 169, 169, 0.1)" 
+        hoverBg="rgba(169, 169, 169, 0.1)" 
         data-testid="box-component"
       />
     )
@@ -41,12 +41,10 @@ describe('BoxComponent', () => {
     const box = screen.getByTestId('box-component')
     const user = userEvent.setup()
 
-    // Simula o estado ativo
     await user.pointer({ target: box, keys: '[MouseLeft]' })
 
-    // Verifica se a cor de fundo do :active foi aplicada
     expect(box).toHaveStyleRule('background-color', 'rgba(169, 169, 169, 0.1)', {
-      modifier: ':active',
+      modifier: ':hover',
     })
   })
 })

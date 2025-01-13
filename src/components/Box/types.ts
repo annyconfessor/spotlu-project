@@ -1,4 +1,4 @@
-import { SpaceProps, LayoutProps, FlexboxProps, PositionProps, TextAlignProps, BackgroundProps } from 'styled-system'
+import { SpaceProps, LayoutProps, FlexboxProps, PositionProps, TextAlignProps, BackgroundProps, BorderProps } from 'styled-system'
 
   export interface BoxPropsExtended 
     extends SpaceProps,
@@ -7,7 +7,9 @@ import { SpaceProps, LayoutProps, FlexboxProps, PositionProps, TextAlignProps, B
       PositionProps,
       TextAlignProps,
       BackgroundProps,
+      BorderProps,
       React.HTMLAttributes<HTMLDivElement> {
-        activeBg?: string
+        hoverBg?: string
+        borderRadius?: number
         style?: React.CSSProperties
       }

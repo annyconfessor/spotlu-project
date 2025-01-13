@@ -4,14 +4,14 @@ import { Box, Avatar } from '..'
 
 export const CardItemComponent = ({ name, description, url, alt }: CardProps) => {
   return( 
-    <Box 
-    activeBg="rgba(169, 169, 169, 0.1)"
+    <Box
     display="flex" 
     justifyContent="start"
     alignItems="center"
     width={886}
-    height={72}
-    data-testid="card-item-box">
+    height={64}
+    data-testid="card-item-box"
+    >
       <Avatar 
       width={72} 
       height={72} 
@@ -23,6 +23,7 @@ export const CardItemComponent = ({ name, description, url, alt }: CardProps) =>
       display="flex" 
       flexDirection="column" 
       justifyContent="start"
+      // TODO: adjust to use theme
       style={{ marginLeft: 10 }}>
         <Text variant="paragraph" padding={10}>{name}</Text>
         {description && <Text 
