@@ -11,5 +11,7 @@ import { SpaceProps, LayoutProps, FlexboxProps, PositionProps, TextAlignProps, B
       React.HTMLAttributes<HTMLDivElement> {
         hoverBg?: string
         borderRadius?: number
+        backgroundColor?: string
+        route?: string
         style?: React.CSSProperties
       }

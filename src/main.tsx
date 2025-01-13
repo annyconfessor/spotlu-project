@@ -9,6 +9,7 @@ import { AuthContextProvider } from './contexts/auth'
 import { GlobalStyles } from './GlobalStyles'
 import { Router } from './router/Router'
 import AppRouter from './router/AppRouter'
+import { ContainerLayout } from './container'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -19,11 +20,11 @@ root.render(
       <GlobalStyles/>
         <ThemeProvider theme={theme}>
           <AuthContextProvider>
-          <Container>
+          <ContainerLayout>
             <Router>
               <AppRouter/>
             </Router>
-          </Container>
+          </ContainerLayout>
           </AuthContextProvider>
         </ThemeProvider>
     </React.StrictMode>
