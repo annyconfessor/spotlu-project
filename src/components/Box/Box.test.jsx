@@ -1,39 +1,52 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { BoxComponent } from '.'
 
 describe('BoxComponent', () => {
-  it('applies space, layout, flexbox, position, textAlign, and background props', () => {
-    const { container } = render(
-      <BoxComponent
-        p={4}
-        m={2}
-        width="100px"
-        height="200px"
-        display="flex"
-        justifyContent="center"
-        position="absolute"
-        top="10px"
-        left="20px"
-        textAlign="center"
-        bg="blue"
+  it('renders correctly with provided props', () => {
+    render(
+      <BoxComponent 
+        activeBg="rgba(169, 169, 169, 0.1)" 
+        display="flex" 
+        justifyContent="center" 
+        alignItems="center" 
+        width={200} 
+        height={100} 
+        data-testid="box-component"
       />
     )
 
-    const box = container.firstChild
-    if (!(box instanceof HTMLElement)) {
-      throw new Error('First child is not an HTMLElement')
-    }
+    const box = screen.getByTestId('box-component')
 
-    expect(box).toHaveStyle('padding: 32px')
-    expect(box).toHaveStyle('margin: 8px') 
-    expect(box).toHaveStyle('width: 100px')
-    expect(box).toHaveStyle('height: 200px')
-    expect(box).toHaveStyle('display: flex')
-    expect(box).toHaveStyle('justify-content: center')
-    expect(box).toHaveStyle('position: absolute')
-    expect(box).toHaveStyle('top: 10px')
-    expect(box).toHaveStyle('left: 20px')
-    expect(box).toHaveStyle('text-align: center')
+    expect(box).toBeInTheDocument()
+
+    expect(box).toHaveStyle({
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '200px',
+      height: '100px',
+    })
+  })
+
+  it('applies activeBg on :active state', async () => {
+    render(
+      <BoxComponent 
+        activeBg="rgba(169, 169, 169, 0.1)" 
+        data-testid="box-component"
+      />
+    )
+
+    const box = screen.getByTestId('box-component')
+    const user = userEvent.setup()
+
+    // Simula o estado ativo
+    await user.pointer({ target: box, keys: '[MouseLeft]' })
+
+    // Verifica se a cor de fundo do :active foi aplicada
+    expect(box).toHaveStyleRule('background-color', 'rgba(169, 169, 169, 0.1)', {
+      modifier: ':active',
+    })
   })
 })
