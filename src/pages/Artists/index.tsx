@@ -1,27 +1,34 @@
-import styled from "styled-components"
-import { useState, useEffect } from "react"
-import getArtists from "@/services/getArtists"
-
-const StyledDiv = styled.div`
-color: #FFFF;
-`
+import { Box, CardItem } from "@/components"
+import useScroll from "@/hooks/useScroll"
 
 const Artists = () => {
-  const [artists, setArtists] = useState(null)
+  const { data } = useScroll()
+  const parsedItems = data?.["items"] || []
+  console.log('0', parsedItems[0])
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getArtists()
-      setArtists(data)
-    }
+  if(!data || !Array.isArray(data["items"]) || data["items"].length === 0) {
+    <h1>Loading...</h1>
+  }
 
-    fetchData()
-  }, [])
+  const renderCardItems = () => {
+    return parsedItems.map((item, index) => (
+      <Box key={index}
+        >
+        <CardItem
+        name={item.name}
+        url={item.images[0].url}
+        />
+      </Box>
+    ))
+  }
 
   return(
-    <StyledDiv>
-      <h1>artists</h1>
-    </StyledDiv>
+    <>
+      <h1>Artists:</h1>
+      <Box>
+        {data && parsedItems.length > 0 && renderCardItems() }
+      </Box>
+    </>
   )
 }
 
