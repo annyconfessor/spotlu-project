@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import LoginAuthorization from '@/auth';
+import LoginAuthorization from '@/pages/Login';
 import { Routes as Router, Route, Navigate } from 'react-router-dom';
 import Home from '@/pages/Home';
 import { currentToken } from '@/constants/config';

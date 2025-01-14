@@ -1,10 +1,10 @@
 import { useEffect } from "react"
-import { Box } from "@/components"
 import { Button } from "@/components"
 import Text from "@/components/Text"
 import { currentToken } from "@/constants/config"
 import { loginWithSpotifyClick } from "@/services/app"
 import { useNavigate } from "react-router-dom"
+import { StyledBox } from "./styles"
 
 const LoginAuthorization = () => {
   const navigate = useNavigate()
@@ -15,24 +15,17 @@ const LoginAuthorization = () => {
       navigate('/home')
     }
 
-  }, [navigate])
+  }, [navigate, currentToken.access_token])
 
-  const handleLoginWithSpotify = async () => {
+  const handleLoginWithSpotify = () => {
     loginWithSpotifyClick()
   }
 
   return (
-      <Box 
-      display="flex" 
-      flexDirection="column" 
-      justifyContent="center"
-      alignItems="center"
-      height={1000}
-      background="#090707"
-      >
-        <Text variant="paragraph" padding={10}>Entre com sua conta Spotify clicando no botão abaixo</Text>
-        <Button width={133} onClick={handleLoginWithSpotify}>Entrar</Button>
-      </Box>
+    <StyledBox>
+      <Text variant="paragraph" padding={10}>Entre com sua conta Spotify clicando no botão abaixo</Text>
+      <Button width={133} onClick={handleLoginWithSpotify}>Entrar</Button>
+    </StyledBox>
   )
 }
 
