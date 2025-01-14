@@ -1,12 +1,12 @@
 import { currentToken, spotifyEndpoint } from '../constants/config'
 
-type AlbunsTypes = {
-  id: string
+type AlbumsTypes = {
+  artistId: string
 }
 
-const getAlbuns = async ({ id }: AlbunsTypes) => {
+const getAlbuns = async ({ artistId }: AlbumsTypes) => {
   try {
-    const response = await fetch(`${spotifyEndpoint}/me/top/artists${id}/albuns`, {
+    const response = await fetch(`${spotifyEndpoint}/artists/${artistId}/albums`, {
       method: 'GET',
       headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
     });
