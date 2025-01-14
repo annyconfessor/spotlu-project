@@ -13,7 +13,7 @@ export const MenuItem = ({ route, nameIcon }: MenuItemsProps) => {
     alignItems="center"
     cursor="pointer"
     >
-      <Box ml={1}>
+      <Box>
         <Icon name={nameIcon} width={24} height={24} fill="#FFFFFF" />
       </Box>
       <Text padding={20} variant="subheading">{route}</Text>

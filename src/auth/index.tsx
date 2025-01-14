@@ -11,7 +11,7 @@ const LoginAuthorization = () => {
   
   useEffect(() => {
     const token = currentToken.access_token
-    if(token) {
+    if(token) { 
       navigate('/home')
     }
 
@@ -22,12 +22,17 @@ const LoginAuthorization = () => {
   }
 
   return (
-    <>
-      <Box display="flex" flexDirection="column" alignItems="center">
-        <Text variant="paragraph">Entre com sua conta Spotify clicando no botão abaixo</Text>
+      <Box 
+      display="flex" 
+      flexDirection="column" 
+      justifyContent="center"
+      alignItems="center"
+      height={1000}
+      background="#090707"
+      >
+        <Text variant="paragraph" padding={10}>Entre com sua conta Spotify clicando no botão abaixo</Text>
         <Button width={133} onClick={handleLoginWithSpotify}>Entrar</Button>
       </Box>
-    </>
   )
 }
 

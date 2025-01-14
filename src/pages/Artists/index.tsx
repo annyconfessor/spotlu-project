@@ -14,7 +14,7 @@ const Artists = () => {
 
   const renderCardItems = () => {
     return parsedItems.map((item, index) => (
-      <Box key={index} paddingBottom={20} paddingTop={10} hoverBg="rgba(169, 169, 169, 0.3)" borderRadius={10}>
+      <Box key={index} paddingBottom={1.5} paddingTop={1.5} hoverBg="rgba(169, 169, 169, 0.3)" borderRadius={10}>
         <CardItem
         name={item.name}
         alt={item.name}

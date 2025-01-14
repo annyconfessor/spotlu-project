@@ -11,6 +11,7 @@ export const CardItemComponent = ({ name, description, url, alt }: CardProps) =>
     width={786}
     height={64}
     data-testid="card-item-box"
+    padding={10}
     >
       <Avatar 
       width={72} 
