@@ -18,7 +18,7 @@ export const StyledBoxComponent = styled.div
     'display', 'alignItems', 'justifyContent', 'flexDirection', 'flexWrap',
     'position', 'top', 'right', 'bottom', 'left',
     'textAlign', 'fontSize', 'color', 'background', 'backgroundColor', 'borderRadius',
-    'hoverBg', 'route', 'cursor', 'isHover', 'paddingBottom', 'paddingTop'
+    'hoverBg', 'route', 'cursor', 'isHover', 'paddingBottom',
   ].includes(prop)
 })<BoxPropsExtended>`
   ${space}
