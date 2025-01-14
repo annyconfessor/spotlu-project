@@ -1,6 +1,13 @@
 import styled from 'styled-components'
-import { space, layout, flexbox, position, textAlign, background, border } from 'styled-system';
-import { BoxPropsExtended } from './types';
+import { space, layout, flexbox, position, textAlign, background, border, system } from 'styled-system';
+import { BoxPropsExtended } from './types'
+
+const cursor = system({
+  cursor: {
+    property: 'cursor',
+    scale: 'cursors',
+  },
+})
 
 export const StyledBoxComponent = styled.div
 .withConfig({
@@ -11,7 +18,7 @@ export const StyledBoxComponent = styled.div
     'display', 'alignItems', 'justifyContent', 'flexDirection', 'flexWrap',
     'position', 'top', 'right', 'bottom', 'left',
     'textAlign', 'fontSize', 'color', 'background', 'backgroundColor', 'borderRadius',
-    'hoverBg', 'route'
+    'hoverBg', 'route', 'cursor',
   ].includes(prop)
 })<BoxPropsExtended>`
   ${space}
@@ -21,12 +28,14 @@ export const StyledBoxComponent = styled.div
   ${textAlign}
   ${background}
   ${border}
+  ${cursor}
 
   
   transition: background-color 0.3s ease;
   border-radius: ${(props) => props.borderRadius};
   
   &:hover {
-    background-color: ${(props) => props.hoverBg}
-    }
-    `
+    background-color: ${(props) => props.hoverBg};
+    ${cursor ?? `cursor: ${(props) => props.cursor || "pointer" }`};
+  }
+  `

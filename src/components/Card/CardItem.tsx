@@ -8,7 +8,7 @@ export const CardItemComponent = ({ name, description, url, alt }: CardProps) =>
     display="flex" 
     justifyContent="start"
     alignItems="center"
-    width={886}
+    width={786}
     height={64}
     data-testid="card-item-box"
     >
@@ -22,9 +22,7 @@ export const CardItemComponent = ({ name, description, url, alt }: CardProps) =>
       <Box 
       display="flex" 
       flexDirection="column" 
-      justifyContent="start"
-      // TODO: adjust to use theme
-      style={{ marginLeft: 10 }}>
+      justifyContent="start">
         <Text variant="paragraph" padding={10}>{name}</Text>
         {description && <Text 
         variant="subParagraph" 

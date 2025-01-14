@@ -1,16 +1,10 @@
-import styled from "styled-components"
-
-const StyledDiv = styled.div`
-width: 100px;
-height: 100px;
-color: #FFFF;
-`
+import { ContainerLayout } from "@/components/Container"
 
 const Home = () => {
   return(
-    <StyledDiv>
-      <h1>Home</h1>
-    </StyledDiv>
+  <ContainerLayout>
+    <h1>Home</h1>
+  </ContainerLayout>
   )
 }
 

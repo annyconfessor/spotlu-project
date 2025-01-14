@@ -11,7 +11,7 @@ export const Figure = styled.div<{ width?: number | string, height?: number | st
   `}
 `
 
-export const StyledImage = styled.img<{ src: string, borderRadius?: number | string }>`
+export const StyledImage = styled.img<{ borderRadius?: number | string }>`
   width: 100%;
   height: 100%;
   object-fit: contain;

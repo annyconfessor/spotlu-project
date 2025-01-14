@@ -4,12 +4,10 @@ import { MenuItem } from "./MenuItem"
 export const MenuGroup = () => {
   return(
     <Box 
-      height={174}
-      width={140}
       display="flex"
       flexDirection="column"
       justifyContent="space-around"
-      background="#000000"
+      padding={20}
       >
       <MenuItem route='Home' nameIcon='home' />
       <MenuItem route='Artists' nameIcon='disc' />

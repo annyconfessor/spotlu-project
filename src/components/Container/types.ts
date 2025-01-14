@@ -1,3 +1,3 @@
 export type ContainerLayoutProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }

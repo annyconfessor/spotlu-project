@@ -14,4 +14,5 @@ import { SpaceProps, LayoutProps, FlexboxProps, PositionProps, TextAlignProps, B
         backgroundColor?: string
         route?: string
         style?: React.CSSProperties
+        cursor?: string
       }

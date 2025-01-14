@@ -1,4 +1,6 @@
 import { Box, CardItem } from "@/components"
+import { ContainerLayout } from "@/components/Container"
+import { HeaderComponent } from "@/components/Header"
 import useScroll from "@/hooks/useScroll"
 
 const Artists = () => {
@@ -12,7 +14,7 @@ const Artists = () => {
 
   const renderCardItems = () => {
     return parsedItems.map((item, index) => (
-      <Box key={index} padding={20}>
+      <Box key={index} paddingBottom={20} paddingTop={10} hoverBg="rgba(169, 169, 169, 0.3)" borderRadius={10}>
         <CardItem
         name={item.name}
         alt={item.name}
@@ -23,12 +25,15 @@ const Artists = () => {
   }
 
   return(
-    <>
-      <h1>Artists:</h1>
-      <Box>
-        {data && parsedItems.length > 0 && renderCardItems() }
+    <ContainerLayout>
+      <Box padding={30}>
+        <HeaderComponent 
+        title="Top Artists" 
+        subtitle="Aqui você encontra seus artistas preferidos" 
+        onClick={()=>{}}/>
+        {data && parsedItems.length > 0 && renderCardItems()}
       </Box>
-    </>
+    </ContainerLayout>
   )
 }
 

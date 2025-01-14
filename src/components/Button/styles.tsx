@@ -1,11 +1,5 @@
-import React from "react"
 import styled from "styled-components"
-
-type ButtonProps = {
-  children: React.ReactNode
-  onClick: () => void
-  width: number
-}
+import { ButtonProps } from "./types"
 
 export const StyledButton = styled.button<ButtonProps>`
   width: ${({ width }) => `${width}px`};

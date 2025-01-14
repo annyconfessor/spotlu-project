@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { ImgProps } from './types'
 
 export const Figure = styled.div<{ width?: number | string, height?: number | string}>`
   display: flex;
@@ -11,8 +12,12 @@ export const Figure = styled.div<{ width?: number | string, height?: number | st
   `}
 `
 
-export const StyledIcon = styled.img`
+export const StyledIcon = styled.img<{ fill?: ImgProps }>`
   width: 100%;
   height: 100%;
   object-fit: contain;
+
+  &:hover {
+    ${({ fill }) => fill ? `filter: invert(100%) sepia(100%) saturate(0%) brightness(100%)` : null};
+  }
 `

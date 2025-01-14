@@ -22,11 +22,8 @@ const Text = styled.span<TextProps>`
         },
         subheading: {
           fontSize: 19 ,
-          fontWeight: 700, 
-          color: '#FFFFFF',
-          disable: {
-            color: "#949EA2"
-          }
+          fontWeight: 700,
+          color: '#949EA2'
         },
         subtitle: {
           fontSize: 16,  
@@ -56,6 +53,15 @@ const Text = styled.span<TextProps>`
       }
     })}
     ${space}
+
+    ${({ variant }) =>
+      variant === 'subheading' &&
+      `
+        &:hover {
+          color: #FFFFFF;
+        }
+      `}
+    }}
 `
 
 export default Text
