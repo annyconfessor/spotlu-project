@@ -8,6 +8,7 @@ import { default as homeWhite } from "./icons/home-white.svg"
 import { default as playWhite } from "./icons/play-white.svg"
 import { default as userWhite } from "./icons/user-white.svg"
 import { default as arrowLeft } from "./icons/arrow-left.svg"
+import { default as close } from "./icons/close.svg"
 
 export const icons = {
   spotifyLogo,
@@ -19,5 +20,6 @@ export const icons = {
   homeWhite,
   playWhite,
   userWhite,
-  arrowLeft
+  arrowLeft,
+  close
 }
