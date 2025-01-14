@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { space, layout, flexbox, position, textAlign, background, border, system } from 'styled-system';
+import { space, layout, flexbox, position, textAlign, background, border, system, color } from 'styled-system';
 import { BoxPropsExtended } from './types'
 
 const cursor = system({
@@ -18,7 +18,7 @@ export const StyledBoxComponent = styled.div
     'display', 'alignItems', 'justifyContent', 'flexDirection', 'flexWrap',
     'position', 'top', 'right', 'bottom', 'left',
     'textAlign', 'fontSize', 'color', 'background', 'backgroundColor', 'borderRadius',
-    'hoverBg', 'route', 'cursor',
+    'hoverBg', 'route', 'cursor', 'isHover'
   ].includes(prop)
 })<BoxPropsExtended>`
   ${space}
@@ -29,13 +29,15 @@ export const StyledBoxComponent = styled.div
   ${background}
   ${border}
   ${cursor}
+  ${color}
 
   
   transition: background-color 0.3s ease;
   border-radius: ${(props) => props.borderRadius};
-  
+
   &:hover {
     background-color: ${(props) => props.hoverBg};
+
     ${cursor ?? `cursor: ${(props) => props.cursor || "pointer" }`};
   }
   `

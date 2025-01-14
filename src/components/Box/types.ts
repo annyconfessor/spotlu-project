@@ -15,4 +15,5 @@ import { SpaceProps, LayoutProps, FlexboxProps, PositionProps, TextAlignProps, B
         route?: string
         style?: React.CSSProperties
         cursor?: string
+        isHover?: boolean
       }
