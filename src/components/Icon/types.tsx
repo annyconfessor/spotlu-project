@@ -5,5 +5,5 @@ export type IconProps = {
   height?: number | string
   fill?: string
   onClick?: () => void
-  cursor: boolean
+  cursor?: boolean
 }

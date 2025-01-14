@@ -2,7 +2,9 @@ import Text from "@/components/Text"
 import { CardItemProps } from './types'
 import { Box, Avatar } from '..'
 
-export const CardItemComponent = ({ name, description, url, alt, borderRadius }: CardItemProps) => {
+export const CardItemComponent = ({ name, description, url, alt, borderRadius, onClick }: CardItemProps) => {
+
+  
   return( 
     <Box
     display="flex" 
@@ -11,7 +13,10 @@ export const CardItemComponent = ({ name, description, url, alt, borderRadius }:
     width={786}
     height={64}
     data-testid="card-item-box"
-    padding={15}>
+    padding={15}
+    onClick={onClick}
+    cursor="pointer"
+    >
       <Avatar 
       width={72} 
       height={72} 

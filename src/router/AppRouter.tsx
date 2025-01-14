@@ -4,6 +4,9 @@ import { Routes as Router, Route, Navigate } from 'react-router-dom';
 import Home from '@/pages/Home';
 import { currentToken } from '@/constants/config';
 import Artists from '@/pages/Artists';
+import Albums from '@/pages/Artists/Albuns';
+import Playlists from '@/pages/Playlists';
+import Perfil from '@/pages/Perfil';
 
 const AppRouter = () => {
   const [accessToken, setAccessToken] = useState<string | null>(currentToken.access_token)
@@ -33,6 +36,21 @@ const AppRouter = () => {
         <Route path="/artists" element={
           <PrivateRoute>
             <Artists/>
+          </PrivateRoute>
+        } />
+        <Route path="/artists/:artistId/albums" element={
+          <PrivateRoute>
+            <Albums/>
+          </PrivateRoute>
+        } />
+        <Route path="/playlists" element={
+          <PrivateRoute>
+            <Playlists />
+          </PrivateRoute>
+        } />
+        <Route path="/perfil" element={
+          <PrivateRoute>
+            <Perfil/>
           </PrivateRoute>
         } />
         <Route path='/*' element={<Navigate to="/"/>} />

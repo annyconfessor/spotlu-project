@@ -6,7 +6,7 @@ import { HeaderProps } from './types'
 export const HeaderComponent = ({ title, subtitle, hasIcon }: HeaderProps) => {
   const navigate = useNavigate()
 
-  const handleNavigate = () => {
+  const goBack = () => {
     navigate(-1)
   }
   
@@ -14,7 +14,7 @@ export const HeaderComponent = ({ title, subtitle, hasIcon }: HeaderProps) => {
     <Box display="flex" alignItems="center" padding={20}>
       {hasIcon && 
       <Box marginRight={20}>
-        <Icon cursor name="arrowLeft" onClick={handleNavigate}/>
+        <Icon cursor name="arrowLeft" onClick={goBack}/>
       </Box>}
       <Box display="flex" flexDirection="column" alignItems="start">
         <Text variant="title">{title}</Text>

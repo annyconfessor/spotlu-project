@@ -4,4 +4,5 @@ export type CardItemProps = {
   description?: string
   alt?: string
   borderRadius?: number
+  onClick?: () => void
 }
