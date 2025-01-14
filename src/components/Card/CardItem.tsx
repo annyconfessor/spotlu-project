@@ -1,8 +1,8 @@
 import Text from "@/components/Text"
-import { CardProps } from './types'
+import { CardItemProps } from './types'
 import { Box, Avatar } from '..'
 
-export const CardItemComponent = ({ name, description, url, alt }: CardProps) => {
+export const CardItemComponent = ({ name, description, url, alt, borderRadius }: CardItemProps) => {
   return( 
     <Box
     display="flex" 
@@ -11,23 +11,17 @@ export const CardItemComponent = ({ name, description, url, alt }: CardProps) =>
     width={786}
     height={64}
     data-testid="card-item-box"
-    padding={10}
-    >
+    padding={15}>
       <Avatar 
       width={72} 
       height={72} 
       url={url} 
       alt={alt}
-      borderRadius={50}
+      borderRadius={borderRadius ? borderRadius : 0}
       />
-      <Box 
-      display="flex" 
-      flexDirection="column" 
-      justifyContent="start">
+      <Box display="flex" flexDirection="column" justifyContent="start">
         <Text variant="paragraph" padding={10}>{name}</Text>
-        {description && <Text 
-        variant="subParagraph" 
-        style={{ margin: 10 }}>
+        {description && <Text variant="subParagraph" padding={10}>
           {description}
         </Text>}
       </Box>

@@ -1,7 +1,15 @@
 import { StyledBoxComponent } from './styles';
 import { BoxPropsExtended } from './types';
 
-export const BoxComponent = ({ hoverBg, borderRadius, backgroundColor, route, cursor, ...rest }: BoxPropsExtended) => {
+export const BoxComponent = ({ 
+  hoverBg, 
+  borderRadius, 
+  backgroundColor, 
+  route, 
+  cursor, 
+  isHover, 
+  ...rest 
+}: BoxPropsExtended) => {
   
   return(
     <StyledBoxComponent 
@@ -10,6 +18,7 @@ export const BoxComponent = ({ hoverBg, borderRadius, backgroundColor, route, cu
       backgroundColor={backgroundColor}
       cursor={cursor}
       route={route}
+      isHover={isHover}
       {...rest}
       />
   )

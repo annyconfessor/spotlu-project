@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
+import { borderRadius } from 'styled-system'
 
-export const Figure = styled.div<{ width?: number | string, height?: number | string}>`
+export const Figure = styled.div<{ width?: number | string, height?: number | string, borderRadius?: number | string }>`
   display: flex;
   align-items: center;
   margin: 0;
@@ -11,12 +12,9 @@ export const Figure = styled.div<{ width?: number | string, height?: number | st
   `}
 `
 
-export const StyledImage = styled.img<{ borderRadius?: number | string }>`
+export const StyledImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
-
-  ${({ borderRadius }) => css`
-    border-radius: ${borderRadius ? `${borderRadius}px` : `${0}px`};
-  `}
+  ${borderRadius}
 `

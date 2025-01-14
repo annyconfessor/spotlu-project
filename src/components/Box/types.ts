@@ -12,6 +12,8 @@ import { SpaceProps, LayoutProps, FlexboxProps, PositionProps, TextAlignProps, B
         hoverBg?: string
         borderRadius?: number
         backgroundColor?: string
+        paddingBottom?: number
+        paddingTop?: number | string
         route?: string
         style?: React.CSSProperties
         cursor?: string
