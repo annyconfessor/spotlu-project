@@ -34,7 +34,7 @@ const Artists = () => {
 
   return(
     <ContainerLayout>
-      <Box padding={30}>
+      <Box>
         <HeaderComponent 
         title="Top Artists" 
         subtitle="Aqui você encontra seus artistas preferidos" />

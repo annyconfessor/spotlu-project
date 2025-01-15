@@ -29,7 +29,7 @@ const Playlists = () => {
 
   return(
     <ContainerLayout>
-      <Box padding={30}>
+      <Box>
         <HeaderComponent 
         title="Minhas Playlists" 
         subtitle="Sua coleção pessoal de playlists"

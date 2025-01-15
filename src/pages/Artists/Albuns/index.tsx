@@ -29,7 +29,7 @@ const Albums = () => {
 
   return(
     <ContainerLayout>
-      <Box padding={30}>
+      <Box>
         <HeaderComponent 
         title={artistName} 
         hasIcon/>

@@ -10,7 +10,7 @@ export const ContainerLayout = ({ children }: ContainerLayoutProps) => {
         <Box
         display="flex" 
         alignItems="center" 
-        justifyContent="center">
+        padding={30}>
           {children}
         </Box>
       </Box>
