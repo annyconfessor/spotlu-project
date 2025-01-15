@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { Box, Button, Icon } from '..'
-import Text from '../Text'
+import { Text } from '../Text'
 import { HeaderProps } from './types'
 
 export const HeaderComponent = ({ title, subtitle, hasIcon }: HeaderProps) => {
