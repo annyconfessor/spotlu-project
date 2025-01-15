@@ -13,7 +13,7 @@ export const MenuGroup = () => {
       <MenuItem route='Home' nameIcon='home' onClick={() => navigate('/home')}/>
       <MenuItem route='Artists' nameIcon='disc' onClick={() => navigate('/artists')}/>
       <MenuItem route='Playlists' nameIcon='play' onClick={() => navigate('/playlists')}/>
-      <MenuItem route='Perfil' nameIcon='user' onClick={() => navigate('/perfil')}/>
+      <MenuItem route='Perfil' nameIcon='user' onClick={() => navigate('/profile')}/>
     </Box>
   )
 }

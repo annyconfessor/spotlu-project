@@ -12,8 +12,7 @@ if (code) {
   currentToken.save(refreshedToken)
 }
 
-const redirectToSpotifyAuthorize = async () => {
-// verification code: high entropy encrypted random string
+export const redirectToSpotifyAuthorize = async () => {
   const generateRandomString = (length: number) => {
 	const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 	const values = crypto.getRandomValues(new Uint8Array(length));
@@ -22,14 +21,12 @@ const redirectToSpotifyAuthorize = async () => {
 
   const codeVerifier  = generateRandomString(64);
 
-// Convert the verification code to hash with SH256 algorithm
   const sha256 = async (plain: string) => {
   const encoder = new TextEncoder()
   const data = encoder.encode(plain)
   return window.crypto.subtle.digest('SHA-256', data)
   }
 
-// base64 representation function
   const base64encode = (input: ArrayBuffer) => {
   return btoa(String.fromCharCode(...new Uint8Array(input)))
     .replace(/=/g, '')
@@ -42,7 +39,6 @@ const redirectToSpotifyAuthorize = async () => {
 
   window.localStorage.setItem('code_verifier', codeVerifier);
 
-// params that goes on url
   const params =  {
     response_type: 'code',
     client_id: clientId,
@@ -54,9 +50,4 @@ const redirectToSpotifyAuthorize = async () => {
 
   authUrl.search = new URLSearchParams(params).toString();
   window.location.href = authUrl.toString()
-}
-
-// click hadlers
-export const loginWithSpotifyClick = async () => {
-  await redirectToSpotifyAuthorize()
 }

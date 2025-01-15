@@ -10,3 +10,5 @@ export const StyledBox = styled(Box)`
   background: #090707;
   overflow-y: auto;
 `;
+
+export const Img = styled.img``

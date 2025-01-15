@@ -6,7 +6,7 @@ import { currentToken } from '@/constants/config';
 import Artists from '@/pages/Artists';
 import Albums from '@/pages/Artists/Albuns';
 import Playlists from '@/pages/Playlists';
-import Perfil from '@/pages/Perfil';
+import Profile from '@/pages/Profile';
 
 const AppRouter = () => {
   const [accessToken, setAccessToken] = useState<string | null>(currentToken.access_token)
@@ -48,9 +48,9 @@ const AppRouter = () => {
             <Playlists />
           </PrivateRoute>
         } />
-        <Route path="/perfil" element={
+        <Route path="/profile" element={
           <PrivateRoute>
-            <Perfil/>
+            <Profile/>
           </PrivateRoute>
         } />
         <Route path='/*' element={<Navigate to="/"/>} />

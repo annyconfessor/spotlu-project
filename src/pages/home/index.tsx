@@ -1,4 +1,4 @@
-import { ContainerLayout } from "@/components/Container"
+import { ContainerLayout } from "@/components/Layout"
 
 const Home = () => {
   return(

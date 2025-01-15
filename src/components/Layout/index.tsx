@@ -7,7 +7,12 @@ export const ContainerLayout = ({ children }: ContainerLayoutProps) => {
     <StyledContainerLayout>
       <Box display="flex">
         <Menu />
-        {children}
+        <Box
+        display="flex" 
+        alignItems="center" 
+        justifyContent="center">
+          {children}
+        </Box>
       </Box>
     </StyledContainerLayout>
   )

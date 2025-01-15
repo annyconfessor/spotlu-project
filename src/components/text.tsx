@@ -11,22 +11,22 @@ const Text = styled.span<TextProps>`
   ${variant({
     variants: {
       title: {
-        fontSize: 28,
+        fontSize: 32,
         fontWeight: 600,
         color: '#FFFFFF',
       },
       heading: {
-        fontSize: 24,
+        fontSize: 28,
         fontWeight: 700,
         color: '#FFFFFF',
       },
       subheading: {
-        fontSize: 19,
+        fontSize: 23,
         fontWeight: 700,
         color: '#949EA2',
       },
       subtitle: {
-        fontSize: 16,
+        fontSize: 20,
         fontWeight: 400,
         color: '#D3DADD',
         bold: {
@@ -35,7 +35,7 @@ const Text = styled.span<TextProps>`
         },
       },
       paragraph: {
-        fontSize: 14,
+        fontSize: 18,
         fontWeight: 400,
         color: '#FFFFFF',
         bold: {
@@ -43,7 +43,7 @@ const Text = styled.span<TextProps>`
         },
       },
       subParagraph: {
-        fontSize: 12,
+        fontSize: 16,
         fontWeight: 400,
         color: '#FFFFFF',
         bold: {

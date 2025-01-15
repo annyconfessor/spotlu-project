@@ -15,7 +15,6 @@ export const CardItemComponent = ({ name, description, url, alt, borderRadius, o
     data-testid="card-item-box"
     padding={15}
     onClick={onClick}
-    cursor="pointer"
     >
       <Avatar 
       width={72} 

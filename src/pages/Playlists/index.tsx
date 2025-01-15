@@ -1,10 +1,10 @@
 import { Box, CardItem } from "@/components"
-import { ContainerLayout } from "@/components/Container"
+import { ContainerLayout } from "@/components/Layout"
 import { HeaderComponent } from "@/components/Header"
-import useScroll from "@/hooks/useScroll"
+import useMediaProfile from "@/hooks/useMediaProfile"
 
 const Playlists = () => {
-  const { playlists } = useScroll()
+  const { playlists } = useMediaProfile()
 
   const parsedItems = playlists?.["items"]
   console.log('PLAYLISTS', playlists?.["items"][0].name)

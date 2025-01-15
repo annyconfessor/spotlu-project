@@ -1,12 +1,12 @@
 import { Box, CardItem } from "@/components"
-import { ContainerLayout } from "@/components/Container"
+import { ContainerLayout } from "@/components/Layout"
 import { HeaderComponent } from "@/components/Header"
-import useScroll from "@/hooks/useScroll"
+import useMediaProfile from "@/hooks/useMediaProfile"
 import { useNavigate } from "react-router-dom"
 
 const Artists = () => {
-  const { data } = useScroll()
-  const parsedItems = data?.["items"] || []
+  const { artists } = useMediaProfile()
+  const parsedItems = artists?.["items"] || []
   const navigate = useNavigate()
   
   const handleArtistID = (index) => {
@@ -38,7 +38,7 @@ const Artists = () => {
         <HeaderComponent 
         title="Top Artists" 
         subtitle="Aqui você encontra seus artistas preferidos" />
-        {data && parsedItems.length > 0 && renderCardItems()}
+        {artists && parsedItems.length > 0 && renderCardItems()}
       </Box>
     </ContainerLayout>
   )

@@ -1,10 +1,11 @@
 import { useEffect } from "react"
-import { Button } from "@/components"
+import { Avatar, Button } from "@/components"
 import Text from "@/components/Text"
 import { currentToken } from "@/constants/config"
-import { loginWithSpotifyClick } from "@/services/app"
 import { useNavigate } from "react-router-dom"
-import { StyledBox } from "./styles"
+import { Img, StyledBox } from "./styles"
+import { loginWithSpotifyClick } from "@/hooks/useAuth"
+import { images } from "@/assets"
 
 const LoginAuthorization = () => {
   const navigate = useNavigate()
@@ -14,7 +15,6 @@ const LoginAuthorization = () => {
     if(token) { 
       navigate('/home')
     }
-
   }, [navigate, currentToken.access_token])
 
   const handleLoginWithSpotify = () => {
@@ -22,7 +22,8 @@ const LoginAuthorization = () => {
   }
 
   return (
-    <StyledBox>
+    <StyledBox paddingBottom={30}>
+      <Avatar name={images["spotifyLogo"]} width={250} height={70}/>
       <Text variant="paragraph" padding={10}>Entre com sua conta Spotify clicando no botão abaixo</Text>
       <Button width={133} onClick={handleLoginWithSpotify}>Entrar</Button>
     </StyledBox>

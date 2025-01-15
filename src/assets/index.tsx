@@ -11,7 +11,6 @@ import { default as arrowLeft } from "./icons/arrow-left.svg"
 import { default as close } from "./icons/close.svg"
 
 export const icons = {
-  spotifyLogo,
   disc,
   home,
   play,
@@ -22,4 +21,8 @@ export const icons = {
   userWhite,
   arrowLeft,
   close
+}
+
+export const images = {
+  spotifyLogo
 }

@@ -1,4 +1,4 @@
-import { icons } from "@/assets"
+import { images } from "@/assets"
 import { Avatar, Box } from ".."
 import { MenuGroup } from "./MenuGroup"
 
@@ -10,10 +10,10 @@ export const MenuComponent = () => {
     display="flex"
     flexDirection="column"
     minWidth={250} 
-    height={796}
+    height="100vh"
     background="#000000">
       <Box padding={20}>
-        <Avatar name={`${icons[name]}`} width={150}/>
+        <Avatar name={`${images[name]}`} width={150}/>
       </Box>
       <MenuGroup />
     </Box>

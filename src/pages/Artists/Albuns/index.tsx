@@ -1,10 +1,10 @@
 import { Box, CardItem } from "@/components"
-import { ContainerLayout } from "@/components/Container"
+import { ContainerLayout } from "@/components/Layout"
 import { HeaderComponent } from "@/components/Header"
-import useScroll from "@/hooks/useScroll"
+import useMediaProfile from "@/hooks/useMediaProfile"
 
 const Albums = () => {
-  const { albums } = useScroll()
+  const { albums } = useMediaProfile()
 
   const parsedItems = albums?.["items"] || []
   const artistName = albums?.["items"][0].artists[0].name

@@ -18,7 +18,7 @@ const getToken = async (code: string) => {
   }
 
   const response = await fetch(tokenEndpoint, payload)
-  return await response.json();
+  return await response.json()
 }
 
 export default getToken

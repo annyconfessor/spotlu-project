@@ -1,14 +1,16 @@
 import getAlbuns from "@/services/getAlbuns"
 import getArtists from "@/services/getArtists"
 import getPlaylists from "@/services/getPlaylists"
+import getSpotifyUserData from "@/services/getSpotifyUserData"
 import { useState, useEffect, useCallback } from "react"
 import { useParams } from "react-router-dom"
 
-const useScroll = () => {
-  const [ data, setData ] = useState(null)
+const useMediaProfile = () => {
+  const [ artists, setArtists ] = useState(null)
   const [ isLoading, setIsLoading ] = useState(false)
   const [ albums, setAlbums ] = useState(null)
   const [ playlists, setPlaylists ] = useState(null)
+  const [ userData, setUserData ] = useState(null)
   const { artistId } = useParams()
 
   const fetchArtists = useCallback(async () => {
@@ -18,13 +20,13 @@ const useScroll = () => {
     setIsLoading(true)
 
     try {
-      const res = await getArtists()
-      if (res && Array.isArray(res.items)) {
-        setData(res)
+      const artists = await getArtists()
+      if (artists && Array.isArray(artists.items)) {
+        setArtists(artists)
       } else {
         console.error("formato de dado invalido")
       }
-      return res
+      return artists
     } catch (e) {
       console.log(e)
     }
@@ -60,13 +62,28 @@ const useScroll = () => {
     }
   }, [isLoading])
 
+  const fetchProfileData = useCallback(async () => {
+
+    if (isLoading) return
+    setIsLoading(true)
+
+    try {
+      const userData = await getSpotifyUserData()
+      setUserData(userData)
+      return userData
+    } catch (e) {
+      console.log(e)
+    }
+  }, [isLoading])
+
   useEffect(() => {
     fetchArtists()
     fetchAlbums({artistId})
     fetchPlaylists()
-  }, [fetchArtists, fetchAlbums, artistId, fetchPlaylists])
+    fetchProfileData()
+  }, [fetchArtists, fetchAlbums, artistId, fetchPlaylists, fetchProfileData])
 
-  return { data, isLoading, albums, playlists }
+  return { artists, isLoading, albums, playlists, userData }
 }
 
-export default useScroll
+export default useMediaProfile
