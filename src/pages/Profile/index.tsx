@@ -1,6 +1,6 @@
 import { Avatar, Box, Button } from "@/components"
 import { ContainerLayout } from "@/components/Layout"
-import Text from "@/components/Text"
+import { Text } from "@/components"
 import { logoutClick } from "@/hooks/useAuth"
 import useMediaProfile from "@/hooks/useMediaProfile"
 

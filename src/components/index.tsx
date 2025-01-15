@@ -4,6 +4,7 @@ import { ButtonComponent as Button } from "./Button"
 import { CardItemComponent as CardItem } from "./Card/CardItem"
 import { IconComponent as Icon } from "./Icon"
 import { MenuComponent as Menu } from "./Menu/Menu"
+import { Text } from "./Text"
 
 export {
   Avatar,
@@ -11,5 +12,6 @@ export {
   Button,
   CardItem,
   Icon,
-  Menu
+  Menu,
+  Text
 }

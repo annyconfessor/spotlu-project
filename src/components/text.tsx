@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { variant, space, color, layout } from 'styled-system';
 
 interface TextProps {
-  variant?: 'title' | 'heading' | 'subheading' | 'subtitle' | 'paragraph' | 'subParagraph';
+  variant?: 'title' | 'heading' | 'subheading' | 'subtitle' | 'paragraph' | 'subParagraph' | 'footer';
   padding?: number;
   isHover?: boolean;
 }
 
-const Text = styled.span<TextProps>`
+export const Text = styled.span<TextProps>`
   ${variant({
     variants: {
       title: {
@@ -48,8 +48,13 @@ const Text = styled.span<TextProps>`
         color: '#FFFFFF',
         bold: {
           fontWeight: 500,
-        },
+        }
       },
+      footer: {
+        color: '#949EA2',
+        fontSize: 16,
+        fontWeight: 400,
+      }
     },
   })}
   ${space}
@@ -65,5 +70,3 @@ const Text = styled.span<TextProps>`
       }
     `}
 `;
-
-export default Text;

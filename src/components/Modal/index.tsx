@@ -1,5 +1,5 @@
 import { Box, Icon } from ".."
-import Text from "../Text"
+import { Text } from "../Text"
 import { ModalProps } from "./types"
 
 export const ModalComponent = ({ playlistName }: ModalProps) => {
