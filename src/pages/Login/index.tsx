@@ -23,7 +23,7 @@ const LoginAuthorization = () => {
 
   return (
     <StyledBox paddingBottom={30}>
-      <Avatar name={images["spotifyLogo"]} width={250} height={70}/>
+      <Avatar name={images["spotifyLogo"]} width={165} height={70}/>
       <Text variant="paragraph" padding={10}>Entre com sua conta Spotify clicando no botão abaixo</Text>
       <Button width={133} onClick={handleLoginWithSpotify}>Entrar</Button>
     </StyledBox>

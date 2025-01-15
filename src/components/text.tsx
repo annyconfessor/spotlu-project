@@ -36,7 +36,7 @@ const Text = styled.span<TextProps>`
       },
       paragraph: {
         fontSize: 18,
-        fontWeight: 400,
+        fontWeight: 500,
         color: '#FFFFFF',
         bold: {
           fontWeight: 500,
