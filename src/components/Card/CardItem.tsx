@@ -2,8 +2,7 @@ import { Text } from "@/components/Text"
 import { CardItemProps } from './types'
 import { Box, Avatar } from '..'
 
-export const CardItemComponent = ({ name, description, url, alt, borderRadius, onClick }: CardItemProps) => {
-
+export const CardItemComponent = ({ name, description, url, borderRadius, onClick }: CardItemProps) => {
   
   return( 
     <Box
@@ -16,11 +15,9 @@ export const CardItemComponent = ({ name, description, url, alt, borderRadius, o
     padding={15}
     onClick={onClick}
     >
-      <Avatar 
-      width={72} 
-      height={72} 
-      url={url} 
-      alt={alt}
+      <Avatar
+      size="small"
+      url={url}
       borderRadius={borderRadius ? borderRadius : 0}
       />
       <Box display="flex" flexDirection="column" justifyContent="start">

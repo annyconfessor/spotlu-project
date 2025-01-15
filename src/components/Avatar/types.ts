@@ -1,8 +1,8 @@
+type AvatarSize = 'small' | 'medium' | 'large';
+
 export type AvatarProps = {
-  alt?: string
   url?: string
-  width?: number | string
-  height?: number | string
   borderRadius?: number | string,
   name?: string
+  size?: AvatarSize
 }

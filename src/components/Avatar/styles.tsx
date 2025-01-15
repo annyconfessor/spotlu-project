@@ -1,14 +1,17 @@
 import styled, { css } from 'styled-components'
 import { borderRadius } from 'styled-system'
 
-export const Figure = styled.div<{ width?: number | string, height?: number | string, borderRadius?: number | string }>`
+export const Figure = styled.div<{
+  borderRadius?: number | string,
+  size: number
+ }>`
   display: flex;
   align-items: center;
   margin: 0;
 
-  ${({ width, height }) => css`
-    width: ${width}px;
-    height: ${height}px;
+  ${({ size }) => css`
+    width: ${size}px;
+    height: ${size}px;
   `}
 `
 

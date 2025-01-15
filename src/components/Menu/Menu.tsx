@@ -1,9 +1,7 @@
-import { images } from "@/assets"
-import { Avatar, Box } from ".."
+import { Box, Image } from ".."
 import { MenuGroup } from "./MenuGroup"
 
 export const MenuComponent = () => {
-  const name = 'spotifyLogo'
 
   return(
     <Box 
@@ -13,7 +11,7 @@ export const MenuComponent = () => {
     height="100vh"
     background="#000000">
       <Box padding={20}>
-        <Avatar name={`${images[name]}`} width={150}/>
+        <Image name="spotifyLogo" width={164} />
       </Box>
       <MenuGroup />
     </Box>

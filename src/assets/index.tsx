@@ -9,6 +9,7 @@ import { default as playWhite } from "./icons/play-white.svg"
 import { default as userWhite } from "./icons/user-white.svg"
 import { default as arrowLeft } from "./icons/arrow-left.svg"
 import { default as close } from "./icons/close.svg"
+import { default as fallBackImg } from "./images/orc.png"
 
 export const icons = {
   disc,
@@ -24,5 +25,6 @@ export const icons = {
 }
 
 export const images = {
-  spotifyLogo
+  spotifyLogo,
+  fallBackImg
 }

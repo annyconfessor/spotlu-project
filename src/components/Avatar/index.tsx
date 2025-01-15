@@ -1,12 +1,19 @@
 import { Figure, StyledImage } from "./styles"
-
 import { AvatarProps } from "./types"
+import { images } from "@/assets"
 
-export const AvatarComponent = ({ alt, width, height, url, borderRadius, name }: AvatarProps) => {
+const SIZES = {
+  small: 72,
+  medium: 128,
+  large: 256
+}
+
+export const AvatarComponent = ({ url, size = 'medium', borderRadius, name }: AvatarProps) => {
   return(
-    <Figure width={width} height={height} borderRadius={borderRadius}>
+    <Figure
+    size={SIZES[size]}
+    borderRadius={borderRadius}>
       <StyledImage 
-      alt={alt} 
       src={name ? name : url} 
       borderRadius={borderRadius} />
     </Figure>

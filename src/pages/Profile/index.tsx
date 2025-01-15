@@ -12,7 +12,7 @@ const Profile = () => {
   return(
     <ContainerLayout>
       <Box display="flex" flexDirection="column" minWidth="75vw" alignItems="center">
-        <Avatar borderRadius={100} url={userProfileImage} width={128} height={128}/>
+        <Avatar borderRadius={100} url={userProfileImage} size="medium"/>
         <Text variant="heading" padding={20}>{name}</Text>
         <Button width={113} onClick={logoutClick}>Sair</Button>
       </Box>
