@@ -8,6 +8,14 @@ const Artists = () => {
   const { artists } = useMediaProfile()
   const parsedItems = artists?.["items"] || []
   const navigate = useNavigate()
+
+  if(!artists) {
+    return (
+      <ContainerLayout>
+        <Box height="100vh"/>
+      </ContainerLayout>
+    )
+  }
   
   const handleArtistID = (index) => {
     const artistId = parsedItems[index].id
@@ -34,11 +42,11 @@ const Artists = () => {
 
   return(
     <ContainerLayout>
-      <Box>
+      <Box width="80vw">
         <HeaderComponent 
         title="Top Artists" 
         subtitle="Aqui você encontra seus artistas preferidos" />
-        {artists && parsedItems.length > 0 && renderCardItems()}
+        {artists && renderCardItems()}
       </Box>
     </ContainerLayout>
   )

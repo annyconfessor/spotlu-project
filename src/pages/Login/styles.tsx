@@ -9,4 +9,8 @@ export const StyledBox = styled(Box)`
   height: 100vh;
   background: #090707;
   overflow-y: auto;
-`;
+`
+
+export const Heart = styled.span`
+  color: cyan;
+`

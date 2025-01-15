@@ -11,7 +11,13 @@ const Profile = () => {
 
   return(
     <ContainerLayout>
-      <Box display="flex" flexDirection="column" minWidth="75vw" alignItems="center">
+      <Box 
+      display="flex" 
+      flexDirection="column" 
+      justifyContent="center"
+      minWidth="75vw" 
+      height="80vh" 
+      alignItems="center">
         <Avatar borderRadius={100} url={userProfileImage} size="medium"/>
         <Text variant="heading" padding={20}>{name}</Text>
         <Button width={113} onClick={logoutClick}>Sair</Button>

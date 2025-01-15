@@ -1,9 +1,10 @@
+import { Box } from "@/components"
 import { ContainerLayout } from "@/components/Layout"
 
 const Home = () => {
-  return(
+  return (
   <ContainerLayout>
-    <h1>Home</h1>
+    <Box height="100vh" />
   </ContainerLayout>
   )
 }

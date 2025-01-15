@@ -6,8 +6,15 @@ import useMediaProfile from "@/hooks/useMediaProfile"
 const Playlists = () => {
   const { playlists } = useMediaProfile()
 
+  if(!playlists) {
+    return (
+      <ContainerLayout>
+        <Box height="100vh"/>
+      </ContainerLayout>
+    )
+  }
+
   const parsedItems = playlists?.["items"]
-  console.log('PLAYLISTS', playlists?.["items"][0].name)
 
   const renderPlaylists = () => {
       return parsedItems?.map((item, index) => (
@@ -29,7 +36,7 @@ const Playlists = () => {
 
   return(
     <ContainerLayout>
-      <Box>
+      <Box width="80vw">
         <HeaderComponent 
         title="Minhas Playlists" 
         subtitle="Sua coleção pessoal de playlists"

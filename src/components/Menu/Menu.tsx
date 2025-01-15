@@ -7,12 +7,10 @@ export const MenuComponent = () => {
     <Box 
     display="flex"
     flexDirection="column"
-    minWidth={250} 
-    height="100vh"
-    background="#000000">
-      <Box padding={20}>
+    minHeight={100}
+    background="#000000"
+    padding={30}>
         <Image name="spotifyLogo" width={164} />
-      </Box>
       <MenuGroup />
     </Box>
   )

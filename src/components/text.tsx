@@ -11,17 +11,17 @@ export const Text = styled.span<TextProps>`
   ${variant({
     variants: {
       title: {
-        fontSize: 32,
+        fontSize: 28,
         fontWeight: 600,
         color: '#FFFFFF',
       },
       heading: {
-        fontSize: 28,
+        fontSize: 26,
         fontWeight: 700,
         color: '#FFFFFF',
       },
       subheading: {
-        fontSize: 23,
+        fontSize: 21,
         fontWeight: 700,
         color: '#949EA2',
       },
@@ -49,11 +49,6 @@ export const Text = styled.span<TextProps>`
         bold: {
           fontWeight: 500,
         }
-      },
-      footer: {
-        color: '#949EA2',
-        fontSize: 16,
-        fontWeight: 400,
       }
     },
   })}

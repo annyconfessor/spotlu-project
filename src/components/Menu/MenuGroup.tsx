@@ -8,8 +8,7 @@ export const MenuGroup = () => {
     <Box 
       display="flex"
       flexDirection="column"
-      justifyContent="space-around"
-      padding={20}>
+      justifyContent="space-around">
       <MenuItem route='Home' nameIcon='home' onClick={() => navigate('/home')}/>
       <MenuItem route='Artists' nameIcon='disc' onClick={() => navigate('/artists')}/>
       <MenuItem route='Playlists' nameIcon='play' onClick={() => navigate('/playlists')}/>

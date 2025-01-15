@@ -9,10 +9,9 @@ export const CardItemComponent = ({ name, description, url, borderRadius, onClic
     display="flex" 
     justifyContent="start"
     alignItems="center"
-    width={786}
-    height={64}
     data-testid="card-item-box"
-    padding={15}
+    width="100%"
+    padding={10}
     onClick={onClick}
     >
       <Avatar

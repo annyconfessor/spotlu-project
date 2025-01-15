@@ -6,6 +6,14 @@ import useMediaProfile from "@/hooks/useMediaProfile"
 const Albums = () => {
   const { albums } = useMediaProfile()
 
+  if(!albums) {
+    return (
+      <ContainerLayout>
+        <Box height="100vh"/>
+      </ContainerLayout>
+    )
+  }
+
   const parsedItems = albums?.["items"] || []
   const artistName = albums?.["items"][0].artists[0].name
 
@@ -29,7 +37,7 @@ const Albums = () => {
 
   return(
     <ContainerLayout>
-      <Box>
+      <Box width="80vw">
         <HeaderComponent 
         title={artistName} 
         hasIcon/>
