@@ -2,13 +2,13 @@ import useMediaProfile from "@/hooks/useMediaProfile"
 import { Box, Button, Icon, Text, Input } from ".."
 import { ModalProps } from "./types"
 import { createPlaylist } from "@/services/createPlaylist"
+import { useState } from "react"
 
 export const ModalComponent = ({ onClose }: ModalProps) => {
-  const playlistName = 'teste magazine luiza'
-  const description = 'minha playlist é massa'
+  const [playlistName, setPlaylistName] = useState('')
+  const description = ''
   const { userId } = useMediaProfile()
 
-  console.log(userId, name, description)
   const handleCreatePlaylist = async (playlistName: string, description: string) => {
 
     try {
@@ -17,11 +17,18 @@ export const ModalComponent = ({ onClose }: ModalProps) => {
         playlistName: playlistName, 
         description: description
       })
-      console.log('new playlist', newPlaylist)
+      console.log('nova playlist criada', newPlaylist)
     } catch (error) {
       console.error("Failed to create playlist:", error)
     }
   }
+
+  const handleEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('e target value', e.target.value)
+    return setPlaylistName(e.target.value)
+  }
+
+  console.log('playlist name', playlistName)
 
   return( 
     <Box
@@ -61,7 +68,7 @@ export const ModalComponent = ({ onClose }: ModalProps) => {
             borderBottomWidth={1}
             borderStyle="solid">
             <Text padding={10} variant="paragraph">Dê um nome a sua playlist</Text>
-            <Input />
+            <Input onChange={handleEvent}/>
           </Box>
           <Box paddingBottom={40}>
             <Button 
