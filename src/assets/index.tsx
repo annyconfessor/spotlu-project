@@ -9,7 +9,8 @@ import { default as playWhite } from "./icons/play-white.svg"
 import { default as userWhite } from "./icons/user-white.svg"
 import { default as arrowLeft } from "./icons/arrow-left.svg"
 import { default as close } from "./icons/close.svg"
-import { default as musicNote } from "./images/default-cover.svg"
+import { default as defaultCoverImage } from "./images/default-cover.svg"
+import { default as defaultProfileImage } from "./images/default-profile.svg"
 
 export const icons = {
   disc,
@@ -21,10 +22,11 @@ export const icons = {
   playWhite,
   userWhite,
   arrowLeft,
-  close
+  close,
 }
 
 export const images = {
   spotifyLogo,
-  musicNote
+  defaultProfileImage,
+  defaultCoverImage
 }

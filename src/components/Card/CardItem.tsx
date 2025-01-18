@@ -1,7 +1,7 @@
 import { Text } from "@/components/Text"
 import { CardItemProps } from './types'
 import { Box, Avatar } from '..'
-import { icons } from "@/assets"
+import { images } from "@/assets"
 
 export const CardItemComponent = ({ name, description, url, borderRadius, onClick }: CardItemProps) => {
   
@@ -16,7 +16,7 @@ export const CardItemComponent = ({ name, description, url, borderRadius, onClic
     onClick={onClick}>
       <Avatar
       size="small"
-      url={url ? url : icons['musicNote']}
+      url={url ? url : images['defaultCoverImage']}
       borderRadius={borderRadius ? borderRadius : 0}/>
       <Box display="flex" flexDirection="column" justifyContent="start">
         <Text variant="paragraph" padding={10}>{name}</Text>
