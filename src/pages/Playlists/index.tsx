@@ -7,13 +7,13 @@ import { images } from "@/assets"
 const Playlists = () => {
   const { playlists } = useMediaProfile()
   
-  // if(!playlists) {
-  //   return (
-  //     <ContainerLayout>
-  //       <Box height="100vh"/>
-  //     </ContainerLayout>
-  //   )
-  // }
+  if(!playlists) {
+    return (
+      <ContainerLayout>
+        <Box height="100vh"/>
+      </ContainerLayout>
+    )
+  }
   
   const parsedItems = playlists?.["items"]
   console.log('parsedItems', parsedItems)
