@@ -1,25 +1,75 @@
-import { Box, Icon } from ".."
-import { Text } from "../Text"
+import useMediaProfile from "@/hooks/useMediaProfile"
+import { Box, Button, Icon, Text, Input } from ".."
 import { ModalProps } from "./types"
+import { createPlaylist } from "@/services/createPlaylist"
 
-export const ModalComponent = ({ playlistName }: ModalProps) => {
+export const ModalComponent = ({ onClose }: ModalProps) => {
+  const playlistName = 'teste magazine luiza'
+  const description = 'minha playlist é massa'
+  const { userId } = useMediaProfile()
+
+  console.log(userId, name, description)
+  const handleCreatePlaylist = async (playlistName: string, description: string) => {
+
+    try {
+      const newPlaylist = await createPlaylist({ 
+        userId: userId, 
+        playlistName: playlistName, 
+        description: description
+      })
+      console.log('new playlist', newPlaylist)
+    } catch (error) {
+      console.error("Failed to create playlist:", error)
+    }
+  }
+
   return( 
     <Box
-    width={600}
-    height={346}
-    background="#303030"
-    borderRadius={32}>
-      <Box display="flex" justifyContent="end" paddingRight={10}>
-        <Icon name="close" />
-      </Box>
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      className="modal-overlay"
+      position="fixed"
+      top={0}
+      left={0}
+      width="100vw"
+      height="100vh"
+      backgroundColor="rgba(0, 0, 0, 0.7)"
+      zIndex={999}
+      borderRadius={32}>
       <Box
-        width={568}
-        height={208}
         display="flex"
-        flexDirection="column">
-        <Text variant="paragraph">Dê um nome a sua playlist</Text>
-        <Text variant="heading">{playlistName}</Text>
-        <Box width={504} height={1} background="#D3DADD"/>
+        flexDirection="column"
+        position="fixed"
+        alignItems="center"
+        justifyContent="space-between"
+        width="40%"
+        height="40%" 
+        background="#303030"
+        borderRadius={32}
+        zIndex={1000}>
+          <Box display="flex" justifyContent="end" width="97%" marginTop={10}>
+            <Icon name="close" onClick={onClose} aria-label="Close modal"/>
+          </Box>
+          <Box 
+            display="flex" 
+            flexDirection="column"
+            width="70%"
+            alignItems="center" 
+            justifyContent="center"
+            borderBottomColor="white"
+            borderBottomWidth={1}
+            borderStyle="solid">
+            <Text padding={10} variant="paragraph">Dê um nome a sua playlist</Text>
+            <Input />
+          </Box>
+          <Box paddingBottom={40}>
+            <Button 
+            width={120}
+            onClick={() => handleCreatePlaylist(playlistName, description)}>
+              Criar
+            </Button>
+          </Box>
       </Box>
     </Box>
   )

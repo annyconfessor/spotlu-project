@@ -7,6 +7,7 @@ import { MenuComponent as Menu } from "./Menu/Menu"
 import { Text } from "./Text"
 import { ModalComponent as Modal } from "./Modal"
 import { ImageComponent as Image } from "./Image"
+import { InputComponent as Input } from "./Input"
 
 export {
   Avatar,
@@ -17,5 +18,6 @@ export {
   Menu,
   Text,
   Modal,
-  Image
+  Image,
+  Input
 }
