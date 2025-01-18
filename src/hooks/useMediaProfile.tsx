@@ -11,6 +11,7 @@ const useMediaProfile = () => {
   const [ albums, setAlbums ] = useState(null)
   const [ playlists, setPlaylists ] = useState(null)
   const [ userData, setUserData ] = useState(null)
+  const [ userId, setUserId ] = useState('')
   const { artistId } = useParams()
 
   const fetchArtists = useCallback(async () => {
@@ -40,7 +41,6 @@ const useMediaProfile = () => {
 
     try {
       const albuns = await getAlbuns({ artistId })
-      console.log('res', albuns["items"][0].artists[0].name)
       setAlbums(albuns)
       return albuns
     } catch (e) {
@@ -69,7 +69,9 @@ const useMediaProfile = () => {
 
     try {
       const userData = await getSpotifyUserData()
+      const id = userData.id
       setUserData(userData)
+      setUserId(id)
       return userData
     } catch (e) {
       console.log(e)
@@ -81,9 +83,15 @@ const useMediaProfile = () => {
     fetchAlbums({artistId})
     fetchPlaylists()
     fetchProfileData()
-  }, [fetchArtists, fetchAlbums, artistId, fetchPlaylists, fetchProfileData])
+  }, [
+    fetchArtists, 
+    fetchAlbums, 
+    artistId, 
+    fetchPlaylists, 
+    fetchProfileData,
+  ])
 
-  return { artists, isLoading, albums, playlists, userData }
+  return { artists, isLoading, albums, playlists, userData, userId }
 }
 
 export default useMediaProfile
