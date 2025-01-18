@@ -15,7 +15,7 @@ const Albums = () => {
   }
 
   const parsedItems = albums?.["items"] || []
-  const artistName = albums?.["items"][0].artists[0].name
+  const albumName = albums?.["items"]?.[0].artists[0].name
 
   const renderAlbumsItems = () => {
       return parsedItems?.map((item, index) => (
@@ -29,7 +29,7 @@ const Albums = () => {
             name={item?.name}
             alt={item.name}
             description={item.release_date}
-            url={item.images[0].url}/>
+            url={item.images[0]?.url}/>
           </Box>
       )
     )
@@ -39,7 +39,7 @@ const Albums = () => {
     <ContainerLayout>
       <Box width="80vw">
         <HeaderComponent 
-        title={artistName} 
+        title={albumName} 
         hasIcon/>
         {albums && renderAlbumsItems()}
       </Box>
