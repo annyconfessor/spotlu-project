@@ -1,24 +1,30 @@
-import { useEffect, useState } from 'react';
-import LoginAuthorization from '@/pages/Login';
-import { Routes as Router, Route, Navigate } from 'react-router-dom';
-import Home from '@/pages/Home';
-import { currentToken } from '@/constants/config';
-import Artists from '@/pages/Artists';
-import Albums from '@/pages/Artists/Albuns';
-import Playlists from '@/pages/Playlists';
-import Profile from '@/pages/Profile';
+import LoginAuthorization from '@/pages/Login'
+import { Routes as Router, Route, Navigate, useNavigate } from 'react-router-dom'
+import Home from '@/pages/Home'
+import { currentToken } from '@/constants/config'
+import Artists from '@/pages/Artists'
+import Albums from '@/pages/Artists/Albuns'
+import Playlists from '@/pages/Playlists'
+import Profile from '@/pages/Profile'
+
 
 const AppRouter = () => {
-  const [accessToken, setAccessToken] = useState<string | null>(currentToken.access_token)
+  const navigate = useNavigate()
 
-  useEffect(() => {
-    const token = currentToken.access_token
-    setAccessToken(token)
-  }, [])
+  const expiry = currentToken.expires
+  const timestamp = parseInt(expiry)
+  const now = new Date().getTime()
+  const isExpired = (now >= timestamp)
+    
+  if (isExpired) {
+    console.log('Token expirado')
+    localStorage.clear()
+    navigate('/')
+  }
 
   const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
 
-    if (!accessToken) {
+    if (!currentToken.access_token) {
       return <Navigate to="/"/>
     }
 
@@ -55,7 +61,7 @@ const AppRouter = () => {
         } />
         <Route path='/*' element={<Navigate to="/"/>} />
       </Router>
-  );
-};
+  )
+}
 
-export default AppRouter;
+export default AppRouter
