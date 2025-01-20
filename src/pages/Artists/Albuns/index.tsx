@@ -37,7 +37,7 @@ const Albums = () => {
 
   return(
     <ContainerLayout>
-      <Box width="80vw">
+      <Box minWidth="80vw" minHeight="100vh">
         <HeaderComponent 
         title={albumName} 
         hasIcon/>
