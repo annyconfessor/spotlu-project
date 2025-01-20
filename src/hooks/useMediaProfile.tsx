@@ -1,5 +1,5 @@
-import getAlbuns from "@/services/getAlbuns"
-import getArtists from "@/services/getArtists"
+import getAlbums from "@/services/getAlbums"
+import { getArtists } from "@/services/getArtists"
 import getPlaylists from "@/services/getPlaylists"
 import getSpotifyUserData from "@/services/getSpotifyUserData"
 import { useState, useEffect, useCallback } from "react"
@@ -12,12 +12,13 @@ const useMediaProfile = () => {
   const [ playlists, setPlaylists ] = useState(null)
   const [ userData, setUserData ] = useState(null)
   const [ userId, setUserId ] = useState('')
+  const [total, setTotalPlaylists] = useState(0)
+  
   const { artistId } = useParams()
 
   const fetchArtists = useCallback(async () => {
 
     if (isLoading) return
-
     setIsLoading(true)
 
     try {
@@ -40,7 +41,7 @@ const useMediaProfile = () => {
     setIsLoading(true)
 
     try {
-      const albuns = await getAlbuns({ artistId })
+      const albuns = await getAlbums({ artistId })
       setAlbums(albuns)
       return albuns
     } catch (e) {
@@ -56,6 +57,8 @@ const useMediaProfile = () => {
     try {
       const playlists = await getPlaylists()
       setPlaylists(playlists)
+      const total = playlists.total
+      setTotalPlaylists(total)
       return playlists
     } catch (e) {
       console.log(e)
@@ -91,7 +94,15 @@ const useMediaProfile = () => {
     fetchProfileData,
   ])
 
-  return { artists, isLoading, albums, playlists, userData, userId }
+  return { 
+    artists, 
+    isLoading, 
+    albums, 
+    playlists, 
+    userData, 
+    userId,
+    total
+  }
 }
 
 export default useMediaProfile
