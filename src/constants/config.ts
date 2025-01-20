@@ -21,8 +21,6 @@ const currentToken = {
     const now = new Date().getTime()
     const expiry = now + parseInt(expires_in) * 1000
 
-    console.log('expiry', expiry)
-
     localStorage.setItem('access_token', access_token)
     localStorage.setItem('refresh_token', refresh_token)
     localStorage.setItem('expires_in', expiry.toString())

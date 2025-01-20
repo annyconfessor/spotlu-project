@@ -72,7 +72,7 @@ const Artists = () => {
         {artists.length > 0 ? (
           renderCardItems()
         ) : (
-          <Text variant="paragraph">Nenhum artista encontrado.</Text>
+          <Text variant="paragraph">Carregando...</Text>
         )}
         {isLoading && hasMore && (
           <Text variant="paragraph">Carregando mais artistas...</Text>

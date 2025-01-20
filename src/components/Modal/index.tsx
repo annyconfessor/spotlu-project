@@ -17,14 +17,12 @@ export const ModalComponent = ({ onClose }: ModalProps) => {
         playlistName: playlistName, 
         description: description
       })
-      console.log('nova playlist criada', newPlaylist)
     } catch (error) {
       console.error("Failed to create playlist:", error)
     }
   }
 
   const handleEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('e target value', e.target.value)
     return setPlaylistName(e.target.value)
   }
 

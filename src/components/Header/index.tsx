@@ -26,7 +26,7 @@ export const HeaderComponent = ({ title, subtitle, hasIcon }: HeaderProps) => {
   }
   
   return( 
-    <Box display="flex" alignItems="center" justifyContent="space-between" paddingBottom={20}>
+    <Box display="flex" alignItems="center" justifyContent="space-between" paddingBottom={20} width="100%">
       <Box display="flex">
         {hasIcon && 
         <Box marginRight={20}>
@@ -43,7 +43,7 @@ export const HeaderComponent = ({ title, subtitle, hasIcon }: HeaderProps) => {
       <Button width={185} onClick={openModal}>Criar Playlist</Button>
     
       {isModalOpen &&
-      <Box display="flex" justifyContent="center">
+      <Box>
         <Modal
           playlistName={playlistName ? playlistName : `Minha Playlist #${item}`}
           description={playlistDescription}
