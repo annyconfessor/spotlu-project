@@ -1,4 +1,4 @@
-import { Box, CardItem } from "@/components"
+import { Box, CardItem, Text } from "@/components"
 import { ContainerLayout } from "@/components/Layout"
 import { HeaderComponent } from "@/components/Header"
 import useMediaProfile from "@/hooks/useMediaProfile"
@@ -7,28 +7,32 @@ import { useEffect, useState } from "react"
 import { useInfiniteScroll } from "@/hooks/useIfiniteScroll"
 
 const Artists = () => {
-  const { artists: inicialArtists } = useMediaProfile()
-  const { isScrolling, moreArtists } = useInfiniteScroll()
-  const [artists, setArtists] = useState(inicialArtists?.["items"] || [])
+  const { artists: inicialArtists } = useMediaProfile();
+  const { moreArtists, hasMore, isLoading } = useInfiniteScroll();
+  const [artists, setArtists] = useState(inicialArtists?.["items"] || []);
   const navigate = useNavigate()
-  console.log('inicialArtists', inicialArtists?.items)
-  console.log('moreArtists', moreArtists?.items)
+  const addedArtists = moreArtists
+
 
   useEffect(() => {
     if (inicialArtists?.items) {
       setArtists(inicialArtists.items)
     }
+  }, [inicialArtists])
 
-    if (moreArtists?.items) {
-      setArtists((prev) => [...prev, ...moreArtists.items])
+  useEffect(() => {
+    if (addedArtists) {
+      setArtists((prev) => {
+        return(
+          [...prev, ...addedArtists]
+        )
+      }
+      )
     }
-    
-  },[inicialArtists, moreArtists?.items])
-
-
+  }, [addedArtists])
 
   const handleArtistId = (index) => {
-    const artistId = artists[index].id
+    const artistId = artists[index]?.id
     return navigate(`/artists/${artistId}/albums`)
   }
 
@@ -61,11 +65,18 @@ const Artists = () => {
   return(
     <ContainerLayout>
       <Box minWidth="80vw" minHeight="100vh">
-        <HeaderComponent 
-        title="Top Artists" 
-        subtitle="Aqui você encontra seus artistas preferidos" />
-        {inicialArtists && renderCardItems()}
-        {isScrolling && <div>Carregando mais artistas</div>}
+        <HeaderComponent
+          title="Top Artists"
+          subtitle="Aqui você encontra seus artistas preferidos"
+        />
+        {artists.length > 0 ? (
+          renderCardItems()
+        ) : (
+          <Text variant="paragraph">Nenhum artista encontrado.</Text>
+        )}
+        {isLoading && hasMore && (
+          <Text variant="paragraph">Carregando mais artistas...</Text>
+        )}
       </Box>
     </ContainerLayout>
   )

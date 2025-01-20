@@ -1,55 +1,56 @@
-import { getMoreArtists } from "@/services/getArtists"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react";
+import { getArtists, getMoreArtists } from "@/services/getArtists";
 
 export const useInfiniteScroll = () => {
-  const [isScrolling, setIsScrolling] = useState(false)
-  const [hasMore, setHasMore] = useState(false)
-  const [moreArtists, setMoreArtists] = useState([])
-  const [offset, setOffset] = useState(20)
-  const limit = 20
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [hasMore, setHasMore] = useState(true); // Inicialmente assumimos que há mais itens
+  const [moreArtists, setMoreArtists] = useState([]);
+  const [offset, setOffset] = useState(20);
+  const [isLoading, setIsLoading] = useState(false);
+  const limit = 20;
 
   const handleScroll = useCallback(() => {
-    const scrollPosition = window.innerHeight + document.documentElement.scrollTop
-    const limitHold = document.documentElement.offsetHeight
+    const scrollPosition = window.innerHeight + document.documentElement.scrollTop;
+    const limitHold = document.documentElement.offsetHeight - 100;
 
-    if (scrollPosition >= limitHold) {
-      setIsScrolling(true)
+    if (scrollPosition >= limitHold && hasMore && !isScrolling) {
+      setIsScrolling(true);
     }
-  },[])
+  }, [hasMore, isScrolling]);
 
   useEffect(() => {
-    if (hasMore || isScrolling) return
-    window.addEventListener("scroll", handleScroll)
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  },[handleScroll, hasMore, isScrolling])
+    if (!hasMore || isScrolling) return;
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll, hasMore, isScrolling]);
 
   useEffect(() => {
-    if(!isScrolling) return
+    if (!isScrolling) return;
 
-    try {
-      const fetchMoreArtists = async ({ offset, limit }) => {
-        const response = await getMoreArtists({ offset: offset, limit: limit })
-        setMoreArtists(response)
+    const fetchMoreArtists = async () => {
+      try {
+        setIsLoading(true);
+        const moreItems = await getMoreArtists({ offset, limit });
 
-        const totalArtists = response.total
-        const totalTopArtists = response.items.lenght
+        setMoreArtists((prev) => [...prev, ...moreItems.items]); // Adiciona os novos artistas ao estado atual
 
-        if (totalArtists > totalTopArtists) setHasMore(true)
+        const artists = await getArtists();
+        const total = moreItems.total;
+        const topArtists = artists.items.length;
 
-        if (response.items.length < limit) {
-          setHasMore(false)
-        }
+        setHasMore(total > topArtists + offset);
+        setOffset((prev) => prev + limit);
+      } catch (error) {
+        console.error("Erro ao carregar mais artistas:", error);
+      } finally {
+        setIsScrolling(false);
+        setIsLoading(false);
       }
+    };
 
-      fetchMoreArtists({ offset, limit })
-    } catch (e) {
-      console.log(e)
-    } finally {
-      setIsScrolling(false)
-    }
-  }, [isScrolling, offset])
+    fetchMoreArtists();
+  }, [isScrolling, offset, limit]);
 
-  return { isScrolling, hasMore, moreArtists }
-}
+  return { isScrolling, hasMore, moreArtists, isLoading };
+};
