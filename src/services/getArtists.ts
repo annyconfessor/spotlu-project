@@ -1,22 +1,25 @@
 import { currentToken, spotifyEndpoint } from '../constants/config'
 
-const getArtists = async () => {
-  try {
-    const response = await fetch(`${spotifyEndpoint}/me/top/artists`, {
-      method: 'GET',
-      headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch user data: ${response.status} ${response.statusText}`);
-    }
-  
-    return await response.json()
-
-  } catch (e) {
-    console.error('Error fetching user data:', e)
-    throw e
-  }
+type getMoreArtistsProps = {
+  offset?: number
+  limit?: number
 }
 
-export default getArtists
+const getArtists = async () => {
+  const response = await fetch(`${spotifyEndpoint}/me/top/artists`, {
+    method: 'GET',
+    headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
+  })
+
+  return await response.json()
+}
+const getMoreArtists = async ({ offset, limit }: getMoreArtistsProps) => {
+  const response = await fetch(`${spotifyEndpoint}/me/top/artists?offset=${offset}&limit=${limit}`, {
+    method: 'GET',
+    headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
+  })
+
+  return await response.json()
+}
+
+export { getArtists, getMoreArtists }
