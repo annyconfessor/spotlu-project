@@ -28,8 +28,6 @@ export const ModalComponent = ({ onClose }: ModalProps) => {
     return setPlaylistName(e.target.value)
   }
 
-  console.log('playlist name', playlistName)
-
   return( 
     <Box
       display="flex"

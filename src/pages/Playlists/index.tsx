@@ -6,7 +6,7 @@ import { images } from "@/assets"
 
 const Playlists = () => {
   const { playlists } = useMediaProfile()
-  
+
   if(!playlists) {
     return (
       <ContainerLayout>
@@ -16,7 +16,6 @@ const Playlists = () => {
   }
   
   const parsedItems = playlists?.["items"]
-  console.log('parsedItems', parsedItems)
   
   const renderPlaylists = () => {
     return parsedItems?.map((item, index) => {

@@ -1,7 +1,7 @@
 import { Avatar, Box, Button } from "@/components"
 import { ContainerLayout } from "@/components/Layout"
 import { Text } from "@/components"
-import { logoutClick } from "@/hooks/useAuth"
+import { logout} from "@/hooks/useAuth"
 import useMediaProfile from "@/hooks/useMediaProfile"
 import { images } from "@/assets"
 
@@ -22,7 +22,7 @@ const Profile = () => {
       alignItems="center">
         <Avatar borderRadius={100} url={profileImage} size="medium"/>
         <Text variant="heading" padding={20}>{userName}</Text>
-        <Button width={113} onClick={logoutClick}>Sair</Button>
+        <Button width={113} onClick={logout}>Sair</Button>
       </Box>
     </ContainerLayout>
   )

@@ -1,11 +1,13 @@
 import { redirectUri } from "@/constants/config"
-import { redirectToSpotifyAuthorize } from "@/services/app"
+import { redirectToSpotifyAuthorize } from "@/utils/auth"
 
-export const loginWithSpotifyClick = async () => {
+const loginWithSpotify = async () => {
   await redirectToSpotifyAuthorize()
 }
 
-export const logoutClick = () => {
+const logout = () => {
   localStorage.clear()
   window.location.href = redirectUri
 }
+
+export  { loginWithSpotify, logout }

@@ -4,7 +4,7 @@ import { Text, Box } from "@/components"
 import { currentToken } from "@/constants/config"
 import { useNavigate } from "react-router-dom"
 import { Heart, StyledBox } from "./styles"
-import { loginWithSpotifyClick } from "@/hooks/useAuth"
+import { loginWithSpotify } from "@/hooks/useAuth"
 
 const LoginAuthorization = () => {
   const navigate = useNavigate()
@@ -18,7 +18,7 @@ const LoginAuthorization = () => {
   }, [navigate, currentToken.access_token])
 
   const handleLoginWithSpotify = () => {
-    loginWithSpotifyClick()
+    loginWithSpotify()
   }
 
   return (
