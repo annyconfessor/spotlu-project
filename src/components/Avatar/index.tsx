@@ -7,13 +7,14 @@ const imageSizes = {
   large: 256
 }
 
-export const AvatarComponent = ({ url, size = 'medium', borderRadius, name }: AvatarProps) => {
+export const AvatarComponent = ({ url, size = 'medium', borderRadius }: AvatarProps) => {
   return(
     <Figure
     size={imageSizes[size]}
     borderRadius={borderRadius}>
       <StyledImage 
-      src={name ? name : url} 
+      alt="Avatar"
+      src={url} 
       borderRadius={borderRadius}/>
     </Figure>
   )

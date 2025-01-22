@@ -1,4 +1,4 @@
 export type InputProps = {
   placeholder?: string
-  onChange: () => void
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }

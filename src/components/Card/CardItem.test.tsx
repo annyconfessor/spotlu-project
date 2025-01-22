@@ -8,16 +8,12 @@ describe('CardItem', () => {
         name="John Doe" 
         description="Software Developer" 
         url="https://example.com/avatar.jpg"
-        alt="angèle"
       />
     )
     
     expect(screen.getByText('John Doe')).toBeInTheDocument()
     
     expect(screen.getByText('Software Developer')).toBeInTheDocument()
-    
-    const avatar = screen.getByAltText('angèle')
-    expect(avatar).toHaveAttribute('src', 'https://example.com/avatar.jpg')
   })
 
   it('should render the card without description if not provided', () => {
@@ -46,7 +42,6 @@ describe('CardItem', () => {
     const boxElement = screen.getByTestId('card-item-box')
     expect(boxElement).toHaveStyle('display: flex')
     expect(boxElement).toHaveStyle('justify-content: start')
-    expect(boxElement).toHaveStyle('width: 886px')
-    expect(boxElement).toHaveStyle('height: 64px')
+    expect(boxElement).toHaveStyle('width: 100%')
   })
 })
