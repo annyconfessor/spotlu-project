@@ -1,4 +1,5 @@
 import { Box, Image } from ".."
+import { ImagesEnum } from "../Image/enum"
 import { MenuGroup } from "./MenuGroup"
 
 export const MenuComponent = () => {
@@ -10,7 +11,7 @@ export const MenuComponent = () => {
     minHeight={100}
     background="#000000"
     padding={30}>
-        <Image name="spotifyLogo" width={164} />
+        <Image name={ImagesEnum.SpotifyLogo} width={164} />
       <MenuGroup />
     </Box>
   )

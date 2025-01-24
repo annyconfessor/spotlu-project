@@ -1,5 +1,7 @@
+import { images } from "@/assets"
+
 export type ImageProps = {
-  name: string
+  name: keyof typeof images
   alt?: string
   width?: number | string
   height?: number | string

@@ -1,5 +1,7 @@
+import { IconsEnum } from "./enum"
+
 export type IconProps = {
-  name: string
+  name: IconsEnum
   alt?: string
   width?: number | string
   height?: number | string

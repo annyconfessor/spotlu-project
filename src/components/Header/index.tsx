@@ -4,6 +4,7 @@ import { Text } from '@/components'
 import { HeaderProps } from './types'
 import { Modal } from '@/components' 
 import { useState } from 'react'
+import { IconsEnum } from '../Icon/enum'
 
 export const HeaderComponent = ({ title, subtitle, hasIcon }: HeaderProps) => {
   const navigate = useNavigate()
@@ -30,7 +31,7 @@ export const HeaderComponent = ({ title, subtitle, hasIcon }: HeaderProps) => {
       <Box display="flex">
         {hasIcon && 
         <Box marginRight={20}>
-          <Icon name="arrowLeft" onClick={goBack} width={32} height={32}/>
+          <Icon name={IconsEnum.ArrowLeft} onClick={goBack} width={32} height={32}/>
         </Box>}
         <Box display="flex" flexDirection="column" alignItems="start">
           <Text variant="title">{title}</Text>

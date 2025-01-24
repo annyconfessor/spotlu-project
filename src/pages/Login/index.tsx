@@ -5,6 +5,7 @@ import { currentToken } from "@/constants/config"
 import { useNavigate } from "react-router-dom"
 import { Heart, StyledBox } from "./styles"
 import { loginWithSpotify } from "@/hooks/useAuth"
+import { ImagesEnum } from "@/components/Image/enum"
 
 const LoginAuthorization = () => {
   const navigate = useNavigate()
@@ -25,7 +26,7 @@ const LoginAuthorization = () => {
       <StyledBox paddingBottom={30} display="flex">
         <Box />
         <Box display="flex" flexDirection="column" alignItems="center">
-          <Image name="spotifyLogo" width={165} height={70}/>
+          <Image name={ImagesEnum.SpotifyLogo} width={165} height={70}/>
           <Text variant="paragraph" padding={10}>Entre com sua conta Spotify clicando no botão abaixo</Text>
           <Button width={133} onClick={handleLoginWithSpotify}>Entrar</Button>
         </Box>

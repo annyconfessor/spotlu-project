@@ -3,6 +3,7 @@ import { Box, Button, Icon, Text, Input } from ".."
 import { ModalProps } from "./types"
 import { createPlaylist } from "@/services/createPlaylist"
 import { useState } from "react"
+import { IconsEnum } from "../Icon/enum"
 
 export const ModalComponent = ({ onClose }: ModalProps) => {
   const [playlistName, setPlaylistName] = useState('')
@@ -52,7 +53,7 @@ export const ModalComponent = ({ onClose }: ModalProps) => {
         borderRadius={32}
         zIndex={1000}>
           <Box display="flex" justifyContent="end" width="97%" marginTop={10}>
-            <Icon name="close" onClick={onClose} aria-label="Close modal"/>
+            <Icon name={IconsEnum.Close} onClick={onClose} aria-label="Close modal"/>
           </Box>
           <Box 
             display="flex" 
