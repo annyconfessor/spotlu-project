@@ -38,6 +38,6 @@ export const StyledBoxComponent = styled.div
   &:hover {
     background-color: ${(props) => props.hoverBg};
 
-    ${cursor ?? `cursor: ${(props) => props.cursor || "pointer" }`};
+    ${cursor ?? `cursor: ${(props: BoxPropsExtended) => props.cursor || "pointer" }`};
   }
   `

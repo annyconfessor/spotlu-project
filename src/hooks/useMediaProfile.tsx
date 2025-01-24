@@ -34,7 +34,7 @@ const useMediaProfile = () => {
     }
   }, [isLoading])
 
-  const fetchAlbums = useCallback(async ({artistId}) => {
+  const fetchAlbums = useCallback(async ({ artistId }: { artistId: string }) => {
   
     if (isLoading) return
 
@@ -83,7 +83,9 @@ const useMediaProfile = () => {
 
   useEffect(() => {
     fetchArtists()
-    fetchAlbums({artistId})
+    if (artistId) {
+      fetchAlbums({ artistId })
+    }
     fetchPlaylists()
     fetchProfileData()
   }, [
