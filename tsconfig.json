@@ -1,13 +1,20 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx", 
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    "types": ["node", "jest"],
-    "esModuleInterop": true,
+    "jsx": "react-jsx", // Para JSX moderno no React 17+
+    "moduleResolution": "node", // Resolve módulos no estilo Node.js
+    "baseUrl": ".", // Necessário para suportar aliases
+    "types": ["node", "jest"], // Adiciona tipos do Node.js e Jest
+    "esModuleInterop": true, // Compatibilidade com módulos ES
     "paths": {
-      "@/*": ["src/*"],
-      "@/components/*": ["src/components/*"]
+      "@/*": ["src/*"], // Alias para o projeto
+      "@/components/*": ["src/components/*"] // Alias específico para components
     },
-  }
+    "outDir": "./dist", // Diretório de saída para builds
+    "rootDir": "./src", // Diretório raiz do projeto
+    "strict": true, // Ativa verificações rigorosas do TypeScript
+    "target": "es2017", // Melhor compatibilidade com ES6+
+    "module": "commonjs" // Ajustado para CommonJS para compatibilidade com Jest
+  },
+  "include": ["src/**/*"], // Inclui todos os arquivos no src
+  "exclude": ["node_modules", "dist"] // Exclui node_modules e dist
 }

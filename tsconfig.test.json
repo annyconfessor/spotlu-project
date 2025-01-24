@@ -1,15 +1,23 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "jsx": "react-jsx"
+    "module": "commonjs", // Jest requer o uso de CommonJS para testes
+    "esModuleInterop": true, // Garante compatibilidade com módulos ES
+    "jsx": "react-jsx", // Compatível com React 17+ (alterar para "react" se versão mais antiga)
+    "types": ["jest", "@testing-library/jest-dom"], // Adiciona tipos do Jest e Testing Library
+    "baseUrl": ".", // Garante que aliases sejam resolvidos corretamente
+    "paths": {
+      "@/*": ["src/*"], // Suporte a aliases do projeto
+      "@/components/*": ["src/components/*"]
+    }
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.test.ts",
-    "src/**/*.test.tsx"
+    "src/**/*.test.tsx",
+    "tests/**/*.ts",
+    "tests/**/*.tsx" // Caso você tenha uma pasta dedicada a testes
   ],
   "exclude": ["node_modules"]
 }
