@@ -7,7 +7,7 @@ interface TextProps {
   isHover?: boolean;
 }
 
-export const Text = styled.span<TextProps>`
+export const TextComponent = styled.span<TextProps>`
   ${variant({
     variants: {
       title: {

@@ -1,4 +1,4 @@
-import { Text } from "@/components/Text"
+import { Text } from "@/components"
 import { CardItemProps } from './types'
 import { Box, Avatar } from '..'
 import { images } from "@/assets"
